@@ -1,0 +1,57 @@
+Introducció a Javascript 2
+
+    Incloure javascript
+
+La manera principal d’afegir javascript a un fitxer HTML és fent servir l’etiqueta <script>
+
+Com hem vist a la primera pràctica, podem posar el nostre codi directament dins d’aquesta etiqueta:
+
+
+<script>
+alert("hola");
+</script>
+
+
+A més a més es pot indicar una ruta per incloure un fitxer en javascript:
+
+<script src="/ruta/del/javascript.js"></script>
+
+Repetiu els exercicis de la pràctica 0 fent servir una etiqueta d’script amb un js separat i sense fer servir jsfiddle (feu-ho des del vostre ordinador)
+Proveu de canviar la ubicació de la etiqueta <script> abans i després del body, té algun efecte? Per què?
+
+    Variables
+
+Tenim 3 maneres de definir variables, var, let i const:
+
+<script>
+var numero = 5.5;
+let paraula = "paraula";
+const laResposta = 42;
+</script>
+
+
+En la majoria dels casos farem servir let, que és la manera moderna de definir variables.
+var és la manera antiga i té algunes diferències subtils.
+Finalment const es fa servir per declarar constants.
+
+
+
+<script src="/ruta/del/javascript.js"></script>
+
+Feu una pàgina amb un element de text numèric amb el valor 0 i un botó. Cada cop que es premi el botó, el número s’ha d’incrementar.
+Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar el factorial del número introduït. (Extra: feu el mateix amb una unció recursiva)
+Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar la lletra del DNI introduït (https://www.letranif.com/formula-para-calcular-nif/).
+
+
+
+
+
+
+
+Referències:
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement (valueAsNumber)
+
+
+
+
+

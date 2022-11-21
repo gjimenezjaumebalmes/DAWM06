@@ -1,0 +1,40 @@
+Teoria:
+.style
+Es pot accedir i modificar els estils CSS d'un element de la següent manera. Per exemple si volem canviar el color de la lletra d'un element faríem:
+element.style.color = "red";
+
+https://www.w3schools.com/jsref/prop_style_color.asp
+.children
+Podem accedir als fills d'un element amb la propietat children.
+https://www.w3schools.com/jsref/prop_element_children.asp
+Es poden accedir a tots els fills de la mateixa manera que amb un array
+Exercicis:
+Exercici 1 - Colorets.
+
+Creeu un HTML amb:
+un div
+un input
+un botó
+Feu que el botó canviï el color del div amb el color indicat a l’iinput.
+Exemple: si vosaltres escriviu red a l'input i premeu el botó, el color de fons del div s'ha de canviar a vermell.
+Exercici 2 - Escull l'element de la llista.
+Donada la llista següent:
+<div id="llista">
+     <div>5</div>
+     <div>1</div>
+     <div>2</div>
+     <div>9</div>
+     <div>4</div>
+</div>
+
+Feu un HTML amb:
+la llista
+un input
+un botó
+Feu que el botó "seleccioni" l'element de la llista indicat per a l’input. Per seleccionar l'element canvieu el color de fons del div corresponent.
+Exemple: Si l’input indica el número 3, el tercer div de la llista ha de canviar de color.
+Pista: Recordeu la propietat children.
+Exercici 3 - Esborra els elements.
+Feu un altre botó que deseleccioni tots els elements. Continuant els exercicis anteriors, fes que quan seleccionem un nou element es deseleccionin els anteriors.
+Exercici 4 - Mínim i màxim
+Fes un botó que seleccioni el div que conté el valor numèric màxim. Fes un altre botó que seleccioni el div que conté el valor numèric mínim.
