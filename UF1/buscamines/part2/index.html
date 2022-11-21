@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>BUSCAMINES</h1>
+<!--Crear la cuadricula-->
+<input type="number" id="X">
+<input type="number" id="Y">
+<button type="button" onclick="CreaTaula()">Crear taula</button>
+<!--Posar mines-->
+<P>
+    <input type="number" id="NumeroMines">
+    <!--  # Exercici 2
+      Feu que la funció `inicialitzaMines` es cridi quan premem el botó de començar el joc i que ompli la variable global mines.-->
+    <button type="button" onclick="inicialitzaMines()">Ficar mines</button>
+<div id="taulell">
+    <button onClick="window.location.href=window.location.href">Reset JOC</button></div>
+</body>
+<script src="buscamines.js">
+</script>
+</html>
