@@ -15,7 +15,7 @@ Creeu un HTML amb:
 un div
 un input
 un botó
-Feu que el botó canviï el color del div amb el color indicat a l’iinput.
+Feu que el botó canviï el color del div amb el color indicat a l’input.
 Exemple: si vosaltres escriviu red a l'input i premeu el botó, el color de fons del div s'ha de canviar a vermell.
 Exercici 2 - Escull l'element de la llista.
 Donada la llista següent:
