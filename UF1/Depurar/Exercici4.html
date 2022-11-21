@@ -1,0 +1,13 @@
+<!--Exercici 4 - Troba els errors al següent Codi i arregla'ls:-->
+<html>
+<script>
+  function incrementa() {
+    let comptador =
+            parseInt(document.getElementById('comptador').innerHTML);
+
+    document.getElementById('Comptador').innerHTML = comptador++;
+  }
+</script>
+<body>
+<button type="button" onclick= "incrementa()"> Incrementa </button>
+<div id="comptador">0</div>

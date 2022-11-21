@@ -1,0 +1,18 @@
+<!--Exercici 3 - Troba els errors al següent Codi i arregla'ls-->
+<html>
+<script>
+  function sumaSenars(llista) {
+    let suma = 0;
+    let i = 0;
+    while (i < llista.length) {
+      i++;
+      if (i % 2 == 1) {
+        suma += llista[i];
+      }
+    }
+    return suma;
+  }
+  console.log(sumaSenars([0,1,2,3,4]));
+  console.log(sumaSenars([6,1,5,7,4]));
+</script>
+</html>
