@@ -1,12 +1,14 @@
 <!--Exercici 3 - Troba els errors al següent Codi i arregla'ls-->
-<html>
+<html lang="en">
 <script>
   function sumaSenars(llista) {
     let suma = 0;
     let i = 0;
     while (i < llista.length) {
       i++;
-      if (i % 2 == 1) {
+      let a = i % 2;
+      //Arreglamos el problema
+      if (a === 1) {
         suma += llista[i];
       }
     }

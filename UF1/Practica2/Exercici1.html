@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercici1 Practica2</title>
+</head>
+<body>
+<!--Exercici1
+Creeu un HTML amb:
+un div
+un input
+un botó
+Feu que el botó canviï el color del div amb el color indicat a l’input.-->
+
+
+<div id="color">COLOR</div>
+
+<script type='text/javascript'>
+    //Funcion mycolor
+    function Mycolor() {
+        var element = document.getElementById("color"); //variable donde aplicamos el color
+        element.style.backgroundColor='red'; //color de cambio de la division
+    }
+</script>
+<p>
+<button onClick="Mycolor()">Canviar color</button> <!--Boton canviar color-->
+
+</body>
+</html>

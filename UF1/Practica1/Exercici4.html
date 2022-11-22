@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercici4 Practica1</title>
+</head>
+<body>
+<!--
+Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar la lletra del DNI introduït (https://www.letranif.com/formula-para-calcular-nif/).
+-->
+<script>
+    function averigua ()
+    {
+        cadena="TRWAGMYFPDXBNJZSQVHLCKET"
+        posicion = formulario.dni.value % 23
+        letra = cadena.substring(posicion,posicion+1)
+        document.formulario.dni.value=letra
+    }
+</script>
+<form name="formulario">
+    DNI:<br>
+    <p>
+       <!-- Un input numerico-->
+    <input type="text" name="dni" maxlenght="11" size="11">
+       <!--Un boton-->
+    <input type="button" value="OK"  onclick="averigua()">
+    <p>
+    <!--Boton de reset del dni-->
+    <button onClick="window.location.href=window.location.href">Reset DNI</button></p>
+</form>
+</body>
+</html>

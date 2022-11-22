@@ -1,11 +1,13 @@
 
 <!--Exercici 2 - Troba els errors al següent Codi i arregla'ls-->
-<html>
+<html lang="en">
 <script>
   function sumaParells(llista) {
     let suma = 0;
     for (let i = 0; i < llista.length; i++) {
-      if (i % 2 =- 0) {
+        //Error d'epressión expressión no correcta i % 2 =- 0
+        let a = i % 2;
+      if (a -= 0) {
         suma += llista[i];
       }
     }

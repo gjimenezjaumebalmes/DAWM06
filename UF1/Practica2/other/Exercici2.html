@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercici2 Practica2</title>
+</head>
+<body>
+<!--Exercici2
+Escull l'element de la llista.
+Donada la llista següent:
+<div id="llista">
+    <div>5</div>
+    <div>1</div>
+    <div>2</div>
+    <div>9</div>
+    <div>4</div>
+</div>-->
+
+<script>
+    //Funcion para seleccionar la div
+    function selectText(containerid) {
+
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().addRange(range);
+        }
+    }
+    //Funcion para guardar la variable
+    function guardarvariable() {
+        a = document.getElementById("number").value;
+    }
+
+</script>
+<!--
+Formulario para guardar el numero de la div  que queramos
+-->
+<form id="form" onsubmit="return false;">
+    <input  type="text" id="number" />
+    <input  type="submit" onclick="guardarvariable();" />
+</form>
+<p>
+<div id="divid">
+    <div id="5">5</div>
+    <div id="1">1</div>
+    <div id="2">2</div>
+    <div id="9">9</div>
+    <div id="4">4</div>
+</div>
+<p>
+<!--Boton para seleccion la div-->
+<button onclick="selectText(a)">Seleccionamos el numero introducido</button>
+</body>
+</html>

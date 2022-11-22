@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercici2 Practica1</title>
+</head>
+<body>
+<!--
+Feu una pàgina amb un element de text numèric amb el valor 0 i un botó. Cada cop que es premi el botó, el número s’ha d’incrementar.
+-->
+<script>
+    window.onload = ()=>{
+
+        //Constante cantidad
+        const quantity = document.getElementById("cantidad");
+        const button_plus = document.getElementById("button+");
+        /*const button_minus = document.getElementById("button-");*/
+        let items = 0;
+
+        function Creciente() {
+            items++;
+            quantity.textContent = items;
+        }
+
+        /*function Decreciente(){
+        if(items > 0) items--;
+        quantity.textContent = items;
+        }*/
+
+        button_plus.addEventListener("click", Creciente);
+        /*button_minus.addEventListener("click",Decreciente);*/
+
+    }
+</script>
+<!--Boton creciente-->
+<input type="button" value="+" id="button+"></input>
+<!--<input type="button" value="-" id="button-"></input>-->
+<h1 id="cantidad">0</h1>
+</body>
+</html>

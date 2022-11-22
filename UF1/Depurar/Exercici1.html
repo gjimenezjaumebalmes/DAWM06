@@ -1,11 +1,12 @@
 <!--
 Exercici 1 - Troba els errors al següent Codi i arregla'ls-->
-<html>
+<html lang="">
 <script>
   function mitjana(llista) {
-    var suma = 0;
-    for (let i = 0; i < llista.length, i++) {
-      let suma += i;
+    let suma = 0;
+    // Arreglamos el problema del ; detras de llista.length y el problema de expressión de +=
+    for (let i = 0; i < llista.length; i++) {
+        let suma =+ i;
     }
     return suma/llista.length;
   }
