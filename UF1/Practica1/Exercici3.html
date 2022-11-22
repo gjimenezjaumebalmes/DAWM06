@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <title>Exercici3 Practica1</title>
 </head>
-<body>
 <!--
-Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar el factorial del número introduït. (Extra: feu el mateix amb una unció recursiva)
+Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar el factorial del número introduït. (Extra: feu el mateix amb una funció recursiva)
 -->
 <script>
+/*Funcion calcular el valor factorial*/
+    function factorial(){
+        numero1=1;
 
+        numero=eval(f1.numeroelegido.value);
+
+        for(i=1;i<=numero;i++)
+
+            numero1=numero1*i;
+
+        valor.innerHTML=numero1;
+
+    }
 
 </script>
-</body>
+
+<!--Formulario con los inputs y el resultado del factorial-->
+<form name=f1>
+    <div id="layer1">
+        <!--Input numerico-->
+        <input type="number" name="numeroelegido" >
+        <!--Boton-->
+        <input type="button" value="calcular" name="B1" onclick='factorial()'></font></td>
+        <p>
+            <h3>Resultado</h3>
+        <font  id=valor>   </font><!--Valor resultado-->
+
+    </div>
+
+</form>
 </html>

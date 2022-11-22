@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercici3 Practica1</title>
+</head>
+<body>
+<!--
+Feu una pàgina amb un element de text, un input numèric i un botó. Quan premeu el botó, s’ha de canviar l’element de text i mostrar el factorial del número introduït. (Extra: feu el mateix amb una funció recursiva)
+-->
+<script>
+    var n1,n2;
+
+    n1=parseInt(prompt("Introduce un número"));
+    n2=1;
+
+    if(n1<0){
+        while(n1<0){
+            n1=parseInt(prompt("El valor del número introducido debe ser mayor que 0"));
+        }
+    }
+
+    while (n1>1){
+        n2=n1*n2;
+        n1=n1-1;
+    }
+    document.write("El factorial es: "+n2);
+
+</script>
+
+</body>
+</html>

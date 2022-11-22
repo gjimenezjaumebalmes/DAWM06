@@ -17,16 +17,24 @@ Donada la llista següent:
 </div>-->
 
 <script>
-
+/*Funcion seleccionar*/
+    function seleccionar(){
+        let elemento = document.getElementById("recValue").value;
+        document.getElementById("llista").children[elemento].style.backgroundColor = "red";
+    }
 </script>
 
-<div id="divid">
-    <div id="5">5</div>
-    <div id="1">1</div>
-    <div id="2">2</div>
-    <div id="9">9</div>
-    <div id="4">4</div>
+<div id="llista">
+    <div>5</div><!--Posició 0-->
+    <div>1</div><!--Posició 1-->
+    <div>2</div><!--Posició 2-->
+    <div>9</div><!--Posició 3-->
+    <div>4</div><!--Posició 4-->
 </div>
+<!--input numeric-->
+<input type="number" id="recValue">
+<!--input boto seleccionar-->
+<button id="seleciona" onclick="seleccionar()">Selecciona la posició del numero</button>
 
 </body>
 </html>

@@ -2,18 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercici3 Practica2</title>
+    <title>Exercici2 Practica2</title>
 </head>
 <body>
-<!--
-Exercici3
-Esborra els elements.
-Feu un altre botó que deseleccioni tots els elements. Continuant els exercicis anteriors, fes que quan seleccionem un nou element es deseleccionin els anteriors.
--->
+<!--Exercici2
+Escull l'element de la llista.
+Donada la llista següent:
+<div id="llista">
+    <div>5</div>
+    <div>1</div>
+    <div>2</div>
+    <div>9</div>
+    <div>4</div>
+</div>-->
 
 <script>
-
-
+    /*Funcion seleccionar*/
+    function seleccionar(){
+        let elemento = document.getElementById("recValue").value;
+        document.getElementById("llista").children[elemento].style.backgroundColor = "red";
+    }
+    /*Funcion borrar seleccionados*/
+    function borraCol(){
+        let lista = document.getElementById("llista").children;
+        for (let i= 0; i < lista.length; i++) {
+            document.getElementById("llista").children[i].style.backgroundColor = "white";
+        }
+    }
 </script>
+
+<div id="llista">
+    <div>5</div><!--Posició 0-->
+    <div>1</div><!--Posició 1-->
+    <div>2</div><!--Posició 2-->
+    <div>9</div><!--Posició 3-->
+    <div>4</div><!--Posició 4-->
+</div>
+<!--input numeric-->
+<input type="number" id="recValue">
+
+<!--input boto seleccionar-->
+<button id="seleciona" onclick="seleccionar()">Selecciona la posició del numero</button>
+<button id="borra" onclick="borraCol()">Esborra</button>
 </body>
 </html>

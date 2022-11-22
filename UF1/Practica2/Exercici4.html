@@ -13,7 +13,48 @@ Fes un botó que seleccioni el div que conté el valor numèric màxim. Fes un a
 
 <script>
 
+    function min(){
 
+        let lista = document.getElementById("llista").children;
+        let min = parseInt(lista[0].textContent);
+        let index = 0;
+        for (let i= 0; i < lista.length; i++) {
+            if (parseInt(lista[i].textContent)< min){
+                min = parseInt(lista[i].textContent);
+                index = i;
+            }
+
+        }
+        lista[index].style.backgroundColor = "yellow";
+    }
+    function max(){
+        let lista = document.getElementById("llista").children;
+        let max = parseInt(lista[0].textContent);
+        let index = 0;
+        for (let i= 0; i < lista.length; i++) {
+            if (parseInt(lista[i].textContent)> max){
+                min = parseInt(lista[i].textContent);
+                index = i;
+            }
+
+        }
+        lista[index].style.backgroundColor = "red";
+    }
 </script>
+
+<body>
+<div id="llista">
+    <div>5</div>
+    <div>3</div>
+    <div>2</div>
+    <div>4</div>
+    <div>9</div>
+</div>
+<h3>Valor minimo de color amarillo</h3>
+<button id="min" onclick="min()">Minimo</button>
+<h3>Valor máximo de color rojo</h3>
+<button id="max" onclick="max()">Maximo</button>
+</body>
+
 </body>
 </html>
