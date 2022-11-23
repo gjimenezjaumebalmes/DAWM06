@@ -1,5 +1,4 @@
-<!--
-Exercici 1 - Troba els errors al següent Codi i arregla'ls-->
+<!--Exercici 1 - Troba els errors al següent Codi i arregla'ls
 <html lang="">
 <script>
   function mitjana(llista) {
@@ -13,4 +12,20 @@ Exercici 1 - Troba els errors al següent Codi i arregla'ls-->
   console.log(mitjana([0,1,2,3,4]));
   console.log(mitjana([6,1,5,7,4]));
 </script>
+</html>-->
+
+<html>
+<script>
+    function mitjana(llista) {
+        let suma = 0;
+        for (let i = 0; i < llista.length; i++) {
+            //i;
+            suma += llista[i];
+        }
+        return suma/llista.length;
+    }
+    console.log(mitjana([0,1,2,3,4]));
+    console.log(mitjana([6,1,5,7,4]));
+</script>
 </html>
+
