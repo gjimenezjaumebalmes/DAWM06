@@ -56,9 +56,8 @@
     libro3.printLibrary();
 
 
-/*
-    5. Amb Javascript, utilitzant objectes (funció constructora), troba el volum d'un cilindre amb 4 decimals. El volum d'un cilindre de radi r i altura h és: V = π*r^2*h
-*/
+
+    // 5. Amb Javascript, utilitzant objectes (funció constructora), troba el volum d'un cilindre amb 4 decimals. El volum d'un cilindre de radi r i altura h és: V = π*r^2*h
 
     function Cilindre(cyl_altura, cyl_diametre) {
         this.cyl_altura = cyl_altura;
@@ -73,9 +72,8 @@
     var cylindre = new Cilindre(7, 4);
     console.log('volume =', cylindre.Volume().toFixed(4));
 
-/*
-    6. Amb Javascript, crea l'objecte Cercle. Com a paràmetre d'entrada tenim el radi. Crea dos mètodes per calcular el perímetre i l'àrea. A part de la propietat radi, crea també les propietats color_contorn, color_fons, gruix_contorn.
-*/
+
+    //  6. Amb Javascript, crea l'objecte Cercle. Com a paràmetre d'entrada tenim el radi. Crea dos mètodes per calcular el perímetre i l'àrea. A part de la propietat radi, crea també les propietats color_contorn, color_fons, gruix_contorn.
 
     function Cercle(cercle_radi, color_contorn, color_fons, gruix_contorn) {
         this.cercle_radi = cercle_radi;
@@ -100,22 +98,45 @@
     console.log('perímetre =', cercle.perimetre());
     console.log('area =', cercle.area());
 
-/*
-    7. Amb Javascript, crea una funció per printar tots els mètodes d'un objecte Javascript. Aplica-ho per exemple a l'objecte Cercle que has creat abans. Només els mètodes, no les propietats.
-*/
 
-   /* 8. Amb Javascript, escriu un programa per posar totes les propietats d'un objecte i els seus valors, a una matriu bidimensional:
+    // 7. Amb Javascript, crea una funció per printar tots els mètodes d'un objecte Javascript. Aplica-ho per exemple a l'objecte Cercle que has creat abans. Només els mètodes, no les propietats.
 
-        [[prop1, value1],[prop2, value2],...]
-*/
-/*
-    9. Amb Javascript, escriu un programa que obtingui un objecte a partir d'un altre objecte (que només conté propietats), de manera que les claus passen a ser els valors, i els valors passen a ser les claus.
-*/
+    function pillaMetodes(objecte) {
+        for (key in objecte){
+            if (typeof objecte[key]=="function"){
+                console.log(key);
+            }
+        }
+    }
 
-/*
-    10. Amb Javascript, escriu un programa que comprovi si una propietat (paràmetre d'entrada) està dins de l'objecte (retorna true o false).
-*/
+    //  8. Amb Javascript, escriu un programa per posar totes les propietats d'un objecte i els seus valors, a una matriu bidimensional:
 
+    function posaProps(objecte) {
+        let matriu=[];
+        for (i in objecte){
+            let matriu2=[];
+            matriu2.push(i);
+            matriu2.push(objecte[i]);
+            matriu.push(matriu2);
+        }
+    }
+
+     // 9. Amb Javascript, escriu un programa que obtingui un objecte a partir d'un altre objecte (que només conté propietats), de manera que les claus passen a ser els valors, i els valors passen a ser les claus.
+
+    function inverteix(objecte) {
+        let obj2={}
+        for (let key in objecte){
+            obj2[objecte[key]]= key;
+        }
+        console.log(obj2);
+    }
+
+
+    //  10. Amb Javascript, escriu un programa que comprovi si una propietat (paràmetre d'entrada) està dins de l'objecte (retorna true o false).
+
+    function comprovaProp(objecte, parametre){
+        return (typeof objecte[parametre] !== 'undefined');
+    }
 
 </script>
 </body>
