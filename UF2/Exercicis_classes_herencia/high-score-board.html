@@ -4,9 +4,87 @@
     <meta charset="UTF-8">
     <title>high-score-board</title>
 </head>
-<body>
+
 <script>
 
+creartablapuntuacion();
+
+function creartablapuntuacion() {
+
+return {
+
+"The Best Ever": 1000000,
+
+};
+
+}
+function addPlayer(tablapuntuacion, jugador, puntuacion) {
+
+    tablapuntuacion[jugador] = puntuacion;
+
+    return tablapuntuacion;
+
+}
+
+let x = addPlayer({ 'Guillem': 0 }, 'Gjimenez', 486373)
+let y = addPlayer({ 'Raul': 0 }, 'Rrugo', 586373)
+let z = addPlayer({ 'Javier': 0 }, 'Jalvarez', 286373)
+
+console.log(x)
+console.log(y)
+console.log(z)
+
+function eliminarjugador(tablapuntuacion, jugador) {
+
+    delete tablapuntuacion[jugador];
+    return tablapuntuacion;
+
+}
+
+let a = eliminarjugador({ 'Javier': 0 }, 'Jalvarez')
+
+console.log(a)
+
+
+function actualizartabla(tablapuntuacion, jugador, puntos) {
+
+    tablapuntuacion[jugador] = tablapuntuacion[jugador] + puntos;
+
+return tablapuntuacion;
+
+}
+
+let b = eliminarjugador({ 'Guillem': 0 }, 'Gjimenez', 32)
+console.log(b)
+
+
+function Bonus(tablapuntuacion) {
+
+    for (const jugador in tablapuntuacion)
+
+        tablapuntuacion[jugador] = tablapuntuacion[jugador] += 100;
+
+    return tablapuntuacion;
+}
+
+let c = bonus
+
+// function normalize(score) {
+//     return 2 * score + 10;
+// }
+//
+// const params = { score: 400, normalizeFunction: normalize };
+// normalizeScore(params);
+//
+//     export function normalizeScore(params) {
+//
+//     return params.normalizeFunction(params.score);
+//
+// }
 </script>
+
+
+<body>
+
 </body>
 </html>
