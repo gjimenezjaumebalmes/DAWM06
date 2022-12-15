@@ -7,8 +7,8 @@
 
 <script>
 
-creartablapuntuacion();
 
+//Funcion Crear tabla de puntuacion
 function creartablapuntuacion() {
 
 return {
@@ -18,6 +18,10 @@ return {
 };
 
 }
+
+creartablapuntuacion();
+
+//Funcion añadir jugador
 function addPlayer(tablapuntuacion, jugador, puntuacion) {
 
     tablapuntuacion[jugador] = puntuacion;
@@ -34,6 +38,7 @@ console.log(x)
 console.log(y)
 console.log(z)
 
+//Funcion eliminar jugador
 function eliminarjugador(tablapuntuacion, jugador) {
 
     delete tablapuntuacion[jugador];
@@ -45,7 +50,7 @@ let a = eliminarjugador({ 'Javier': 0 }, 'Jalvarez')
 
 console.log(a)
 
-
+//Funcion actualizar tabla
 function actualizartabla(tablapuntuacion, jugador, puntos) {
 
     tablapuntuacion[jugador] = tablapuntuacion[jugador] + puntos;
@@ -54,10 +59,10 @@ return tablapuntuacion;
 
 }
 
-let b = eliminarjugador({ 'Guillem': 0 }, 'Gjimenez', 32)
+let b = actualizartabla({ 'Guillem': 0 }, 'Gjimenez', 32)
 console.log(b)
 
-
+//Funcion bonus jugador
 function Bonus(tablapuntuacion) {
 
     for (const jugador in tablapuntuacion)
@@ -67,20 +72,25 @@ function Bonus(tablapuntuacion) {
     return tablapuntuacion;
 }
 
-let c = bonus
+let c = Bonus({ 'Guillem': 0 })
+console.log(c)
 
-// function normalize(score) {
-//     return 2 * score + 10;
-// }
-//
-// const params = { score: 400, normalizeFunction: normalize };
-// normalizeScore(params);
-//
-//     export function normalizeScore(params) {
-//
-//     return params.normalizeFunction(params.score);
-//
-// }
+//Funcion actualizar puntuacion
+function normalize(puntuacion) {
+    return 2 * puntuacion + 10;
+}
+
+const t = { puntuacion: 400, normalizeFunction: normalize };
+normalizeScore(t);
+
+//Funcion actualizar puntuacion
+function normalizeScore(t) {
+
+    return t.normalizeFunction(t.puntuacion);
+
+}
+
+
 </script>
 
 

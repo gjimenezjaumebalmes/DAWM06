@@ -7,6 +7,124 @@
 <body>
 <script>
 
+    // Funcion tamaño "size" con altura "width" y anchura "height"
+    function Size(width , height) {
+
+        this.width = width // altura "width"
+
+        this.height = height // anchura "height"
+    }
+
+
+    size1 = new Size(80, 60); // parametros de altura y anchura
+
+    console.log(size1.width, size1.height);
+
+    // Función redimensionar "resize" con nueva altura "newWidth" y nueva anchura "newHeight"
+    function Resize(newWidth, newHeight) {
+
+         this.width = newWidth // altura "newWidth"
+
+         this.height = newHeight // anchura "newHeight"
+
+     }
+
+    size1 = new Resize(100, 160); // nuevos parametros de altura y anchura
+
+    console.log(size1.width, size1.height);
+
+
+    // Funcion posicion "Position" con parametros x - x
+    function Position(x , y) {
+
+         this.x = x // parametro x
+
+         this.y = y // parametro y
+
+     }
+
+    position1 = new Position(0, 0); // x  = 0  e y = 0
+
+    console.log(position1.x, position1.y);
+
+    // Funcion mover "Move" con newY y newX
+    function Move(newX, newY) {
+
+         this.x = newX // parametro nueva X
+
+         this.y = newY // parametro nueva Y
+
+     }
+
+    position1 = new Move(0, 0); // parametros newx=0 y newy=0
+
+    console.log(position1.x, position1.y);
+
+    // Class programWindow
+    class ProgramWindow {
+
+        // Constructor con parametros Tamaño "Size" y Posicion "Position"
+        constructor(Size,Position) {
+
+            this.screenSize = new Size(800, 600) // Parametros de tamaño width , height
+
+            this.Size = new Size();
+
+            this.Position = new Position();
+
+            }
+
+        // Redimensionar las medidas
+        resize(newSize) {
+
+             const maxWidth = this.screenSize.width - this.Position.x
+
+             const maxHeight = this.screenSize.height - this.Position.y
+
+             const newWidth = Math.max(1, Math.min(newSize.width, maxWidth))
+
+             const newHeight = Math.max(1, Math.min(newSize.height, maxHeight))
+
+             this.Size.resize(newWidth, newHeight)
+
+         }
+
+        // Mover a nueva posicion
+        move(newPosition) {
+
+             const maxX = this.screenSize.width - this.Size.width;
+
+             const maxY = this.screenSize.height - this.Size.height;
+
+             const newX = Math.max(0, Math.min(newPosition.x, maxX))
+
+             const newY = Math.max(0, Math.min(newPosition.y, maxY))
+
+             this.Position.move(newX, newY);
+
+     }
+
+     }
+
+    console.log(ProgramWindow.constructor)
+
+     // Funcion cambiar la ventana mediante la class programWindow
+     function changeWindow(programWindow) {
+
+         programWindow.move(new Position())
+
+         // Redimensionar con los parametros width , height
+         programWindow.resize(new Size(400, 300))
+         // Mover con los parametros x , y
+         programWindow.move(new Position(100, 150))
+
+         return programWindow
+
+    }
+
+
+
+
 </script>
 </body>
 </html>
