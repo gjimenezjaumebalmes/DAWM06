@@ -7,6 +7,93 @@
 <body>
 <script>
 
+
+    // Creacion de la Class Argument error
+    class ArgumentError extends Error {}
+
+    // Creacion de la Class OverheatingError  "Error por calentamiento"
+    class OverheatingError extends Error {
+
+        // Creación del constructor
+        constructor(temperature) {
+
+            super(`La temperatura es ${temperature} ! Sobrecalentamiento !`);
+
+            this.temperature = temperature;
+
+        }
+
+    }
+
+    // Funcion checkHumidityLevel "Sensor de niveles de humedad"
+   function checkHumidityLevel(humidityPercentage) {
+
+        if (humidityPercentage > 70) { // Humedad por encima de 70
+
+            throw new Error( // ERROR
+
+            );
+
+        }
+
+    }
+
+
+    // Funcion reportOverheating "Envio de mensaje de sobrecalentamiento"
+   function reportOverheating(temperature) {
+
+        if (temperature === null) { // bucle if donde la temperatura tiene que ser null
+
+            throw new ArgumentError(
+
+            );
+
+        }
+
+        if (temperature < 500) { // si la temperatura es por debajo de los 500
+
+            return;
+
+        }
+
+        throw new OverheatingError(temperature); // Crea un nuevo error de sobrecalentamiento
+
+    }
+
+
+    // Funcion monitorTheMachine "Monitor de la maquina" parametros ,
+    function monitorTheMachine({ check, alertDeadSensor, alertOverheating, shutdown }) { //
+// check"estado" , alertDeadSensor"sensor inutilizado" , alertOverheating "alerta sobrecalentamiento" , shutdown"apagado"
+        try {
+
+            check()
+
+        } catch (error) {
+
+            if (error instanceof ArgumentError) {
+
+                alertDeadSensor();
+
+            } else if (error instanceof OverheatingError) {
+
+                if (error.temperature < 600) { // temperatura por debajo de 600
+
+                    alertOverheating() // alerta de sobrecalentamiento
+
+                } else {
+
+                    shutdown() // apagado
+                }
+
+            } else {
+
+                throw error; // error ninguna de las 2 otras opciones
+
+            }
+
+        }
+
+    }
 </script>
 </body>
 </html>
