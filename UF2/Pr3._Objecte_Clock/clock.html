@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+
+<body onload="initializeClock();">
+
+<div class="fondo">
+<!--    Function clock-->
+    <div class="Clock">
+        <span id="clock-face"></span>
+        <span id="meridiem"></span>
+    </div>
+    <div id="botones">
+        <p>
+<!--         Boton start reloj "clock"   -->
+        <input type="button" id="start" value="Start" />
+<!--         Boton pause reloj "clock"   -->
+        <input type="button" id="pause" value="Pausar" />
+<!--         Boton reset reloj "clock"   -->
+        <input type="button" id="reset" value="Reset" />
+    </div>
+    <div id="horas">
+        <p>
+        <h1>INTRODUCIR HORAS MINUTOS SEGUNDOS</h1>
+        <p>
+        <label for="hour">HORA</label>
+        <input type="text" id="hour" name="hour" />
+        <label for="minut">MINUTOS</label>
+        <input type="text" id="minut" name="minut" />
+        <label for="seconds">SEGUNDOS</label>
+        <input type="text" id="seconds" name="seconds" />
+<!--         Boton start set "poner hora minuto y segundo"   -->
+            <input type="submit" onclick="othername();" id="set" value="Set" />
+    </div>
+
+</div>
+
+
+<!-- JavaScript files -->
+<script type="text/javascript" src="clock.js"></script>
+
+</body>
+</html>
