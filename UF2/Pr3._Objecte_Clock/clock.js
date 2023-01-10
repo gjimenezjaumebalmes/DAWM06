@@ -4,21 +4,24 @@ var inputhour = document.getElementById("hour").value;
 var inputminut = document.getElementById("minut").value;
 var inputsecond = document.getElementById("seconds").value;
 
-function othername() {
+
+// Funcion mostrar inputs de tiempo
+function inputtiempo() {
     alert(inputhour + " : " + inputminut + " : " + inputsecond );
 }
 
+// Funcion reloj "Clock"
     function Clock() {
-        var start = function() { // Start Clock
+        var start = function() { // Iniciamos Clock
             return new Date();
         };
 
-        var formatTime = function(time, formatTimeSize) {
+        var formatTime = function(time, formatTimeSize) { // Variable formato del tiempo
             var hours = addLeadingZero(time.getHours() % 12, formatTimeSize);
             var minutes = addLeadingZero(time.getMinutes(), formatTimeSize);
             var seconds = addLeadingZero(time.getSeconds(), formatTimeSize);
             var timeStamp = hours + " : " + minutes + " : " + seconds;
-            var franja = (time.getHours() < 12) ? "AM" : "PM";
+            var franja = (time.getHours() < 12) ? "AM" : "PM"; // Variable franja de tiempo AM . PM
             return {
                 timeStamp,
                 franja
@@ -30,7 +33,6 @@ function othername() {
             var appendedTime = "0000" + time;
             return appendedTime.substring(appendedTime.length - size);
         }
-
 
         return {
             start: start,
@@ -45,7 +47,6 @@ function othername() {
         pauseButton = document.getElementById('pause'),
         resetButton = document.getElementById('reset');
 
-
     var clock = new Clock();
 
     var interval,
@@ -54,13 +55,13 @@ function othername() {
         clockRunning = false;
 
 
-    var initializeClock = function() {
+    var initializeClock = function() { // Inicializamos los botones
         startButton.disabled = false;
         pauseButton.disabled = true;
         resetButton.disabled = true;
         clockRunning = false;
         interval = null;
-        clockFace.innerHTML = "00 : 00 : 00";
+        clockFace.innerHTML = "00 : 00 : 00"; // Reset del reloj
         franja.innerHTML = "AM";
     }
 
@@ -110,7 +111,6 @@ function othername() {
         clearInterval(interval);
         initializeClock();
     }
-
 
 
 startButton.addEventListener('click', startClock);

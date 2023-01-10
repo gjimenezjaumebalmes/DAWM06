@@ -51,9 +51,7 @@
         }
 
         if (temperature < 500) { // si la temperatura es por debajo de los 500
-
             return;
-
         }
 
         throw new OverheatingError(temperature); // Crea un nuevo error de sobrecalentamiento
