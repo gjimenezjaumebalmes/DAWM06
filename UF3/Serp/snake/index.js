@@ -3,10 +3,10 @@
  * @class
  */
 
-const board_border = 'black';
-const board_background = "white";
-const snake_col = 'lightblue';
-const snake_border = 'darkblue';
+const tablero_border = 'black';
+const tablero_background = "white";
+const snake_fondo = 'red';
+const snake_border = 'black';
 
 let snake = [
     {x: 200, y: 200},
@@ -16,12 +16,15 @@ let snake = [
     {x: 160, y: 200}
 ]
 // Velocitat x
-let dx = 10;
+let velocidad_x = 10;
 // Velocitat y
-let dy = 0;
+let velocidad_y = 0;
 
-const snakeboard = document.getElementById("snakeboard");
-const snakeboard_ctx = snakeboard.getContext("2d");
+let food_x; // variable x de la comida
+let food_y; // variable y de la comida
+
+const tablero = document.getElementById("tablero");
+const tablero_x = tablero.getContext("2d");
 
 start();
 
@@ -32,25 +35,34 @@ document.addEventListener("keydown", input);
  * Serp al centre, direcció cap a la dreta, puntuació 0
  */
 
+
+/**
+ * Afegeix un menjar a una posició aleatòria, la posició no ha de ser cap de les de la serp
+ */
+addFood();
+
 function start() {
-    if (has_game_ended()) return;
+    if (fin()) return;
     input_direction = false;
     setTimeout(function onTick() {
         clear();
         move_snake();
         drawSnake();
         start();
+        drawFood();
     }, 100)
 }
 
 /**
  * Neteja el canvas (pinta'l de blanc)
  */
+
+// Funcion limpiar tablero
 function clear() {
-    snakeboard_ctx.fillStyle = board_background;
-    snakeboard_ctx.strokestyle = board_border;
-    snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
-    snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+    tablero_x.fillStyle = tablero_background;
+    tablero_x.strokestyle = tablero_border;
+    tablero_x.fillRect(0, 0, tablero.width, tablero.height);
+    tablero_x.strokeRect(0, 0, tablero.width, tablero.height);
 }
 
 
@@ -61,24 +73,34 @@ function drawSnake() {
     snake.forEach(drawSnakePart)
 }
 
+// Funcion partes de la serpiente
 function drawSnakePart(snakePart) {
-
-    snakeboard_ctx.fillStyle = snake_col;
-    snakeboard_ctx.strokestyle = snake_border;
-    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+    tablero_x.fillStyle = snake_fondo;
+    tablero_x.strokestyle = snake_border;
+    tablero_x.fillRect(snakePart.x, snakePart.y, 10, 10);
+    tablero_x.strokeRect(snakePart.x, snakePart.y, 10, 10);
 }
 
+/**
+ * Dibuixa la poma al canvas
+ */
+// Funcion dibujar comida
+function drawFood() {
+    tablero_x.fillStyle = 'blue';  // color de la comida
+    tablero_x.strokestyle = 'black'; // color del borde de la comida
+    tablero_x.fillRect(food_x, food_y, 10, 10);
+    tablero_x.strokeRect(food_x, food_y, 10, 10);
+}
 
-
-function has_game_ended() {
+// Funcion fin de juego
+function fin() {
     for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
     }
     const hitLeftWall = snake[0].x < 0;
-    const hitRightWall = snake[0].x > snakeboard.width - 10;
+    const hitRightWall = snake[0].x > tablero.width - 10;
     const hitToptWall = snake[0].y < 0;
-    const hitBottomWall = snake[0].y > snakeboard.height - 10;
+    const hitBottomWall = snake[0].y > tablero.height - 10;
     return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
@@ -89,38 +111,61 @@ function has_game_ended() {
  */
 
 function input(e) {
-    const LEFT_KEY = 37;  // ->
-    const RIGHT_KEY = 39; // <-
-    const UP_KEY = 38; // /\
-    const DOWN_KEY = 40; // \/
+    const LEFT_KEY = 37;  // ->   DERECHA TECLAS ASCII 37
+    const RIGHT_KEY = 39; // <-   IZQUIERDA ASCII 39
+    const UP_KEY = 38; // /\      ARRIBA ASCII 38
+    const DOWN_KEY = 40; // \/    ABAJO ASCII 40
 
     if (input_direction) return;
     input_direction = true;
-    const keyPressed = e.keyCode;
-    const goingUp = dy === -10;
-    const goingDown = dy === 10;
-    const goingRight = dx === 10;
-    const goingLeft = dx === -10;
-    if (keyPressed === LEFT_KEY && !goingRight) {
-        dx = -10;
-        dy = 0;
+    const CLICK = e.keyCode;
+    const Up = velocidad_y === -10;   // constant up
+    const Down = velocidad_y === 10; // constant down
+    const Right = velocidad_x === 10; // constant right
+    const Left = velocidad_x === -10;  // constant left
+    if (CLICK === LEFT_KEY && !Right) {
+        velocidad_x = -10;
+        velocidad_y = 0;
     }
-    if (keyPressed === UP_KEY && !goingDown) {
-        dx = 0;
-        dy = -10;
+    if (CLICK === UP_KEY && !Down) {
+        velocidad_x = 0;
+        velocidad_y = -10;
     }
-    if (keyPressed === RIGHT_KEY && !goingLeft) {
-        dx = 10;
-        dy = 0;
+    if (CLICK === RIGHT_KEY && !Left) {
+        velocidad_x = 10;
+        velocidad_y = 0;
     }
-    if (keyPressed === DOWN_KEY && !goingUp) {
-        dx = 0;
-        dy = 10;
+    if (CLICK === DOWN_KEY && !Up) {
+        velocidad_x = 0;
+        velocidad_y = 10;
     }
 }
 
+// Funcion movimiento snake
 function move_snake() {
-    const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+    const head = {x: snake[0].x + velocidad_x, y: snake[0].y + velocidad_y};
     snake.unshift(head);
-    snake.pop();
+    const comer_food = snake[0].x === food_x && snake[0].y === food_y;
+    if (comer_food) {
+        addFood();
+    } else {
+        snake.pop();
+    }
 }
+
+// Funcion comida random
+function random_food(min, max) {
+    return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+}
+
+// Funcion añadir comida
+function addFood() {
+    food_x = random_food(0, tablero.width - 10);
+    food_y = random_food(0, tablero.height - 10);
+    snake.forEach(function snake_food(part) {
+        const comer = part.x == food_x && part.y == food_y;
+        if (comer) addFood();
+    });
+}
+
+
