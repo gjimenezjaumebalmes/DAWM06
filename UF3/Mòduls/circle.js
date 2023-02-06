@@ -16,6 +16,7 @@ function drawarcrainbow() {  // Funcion draw "dibujar" arco de colores
 
 function draw10circles() {  // Funcion draw "dibujar" 10 circulos grises
 
+
 }
 
 export { drawarcrainbow, draw10circles};

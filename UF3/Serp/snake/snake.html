@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div align="center">
+    <div >
     <input type="button" value="REINICIAR JUEGO" onclick="location.reload()">
+        <p>
     </div>
         <meta charset="UTF-8">
     <title>Snake</title>
-    <style>
-        #tablero {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
 </head>
 <body>
 
-<canvas id="tablero" width="500" height="500">
+<canvas id="tablero" width="300" height="300">
 
 <script>
     /**
@@ -25,18 +18,13 @@
      * @class
      */
 
-    const tablero_border = 'black';
-    const tablero_background = "white";
+    const tablero_borde = 'black';
+    const tablero_fondo = "white";
     const snake_fondo = 'red';
     const snake_border = 'black';
 
-    let snake = [
-        {x: 200, y: 200},
-        {x: 190, y: 200},
-        {x: 180, y: 200},
-        {x: 170, y: 200},
-        {x: 160, y: 200}
-    ]
+    let snake = [{x: 200, y: 200},] // dibujar serpiente
+
     // Velocitat x
     let velocidad_x = 10;
     // Velocitat y
@@ -47,10 +35,11 @@
 
     const tablero = document.getElementById("tablero");
     const tablero_x = tablero.getContext("2d");
+    // "2d", lo que lleva a la creación de un objeto CanvasRenderingContext2D
+    // que representa un contexto de representación bidimensional.
 
     start();
 
-    document.addEventListener("keydown", input);
 
     /**
      * Inicialitza els paràmetres del joc:
@@ -79,10 +68,10 @@
      * Neteja el canvas (pinta'l de blanc)
      */
 
-    // Funcion limpiar tablero
+// Funcion limpiar tablero
     function clear() {
-        tablero_x.fillStyle = tablero_background;
-        tablero_x.strokestyle = tablero_border;
+        tablero_x.fillStyle = tablero_fondo;
+        tablero_x.strokestyle = tablero_borde;
         tablero_x.fillRect(0, 0, tablero.width, tablero.height);
         tablero_x.strokeRect(0, 0, tablero.width, tablero.height);
     }
@@ -93,6 +82,7 @@
      */
     function drawSnake() {
         snake.forEach(drawSnakePart)
+        // El método forEach() ejecuta la función indicada una vez por cada elemento del array.
     }
 
     // Funcion partes de la serpiente
@@ -100,18 +90,23 @@
         tablero_x.fillStyle = snake_fondo;
         tablero_x.strokestyle = snake_border;
         tablero_x.fillRect(snakePart.x, snakePart.y, 10, 10);
+        // fillRect Dibuja un rectángulo relleno en la posición ( x, y ).
         tablero_x.strokeRect(snakePart.x, snakePart.y, 10, 10);
+        // El strokeRect() método dibuja un rectángulo (no fill) .
+
     }
 
     /**
      * Dibuixa la poma al canvas
      */
-    // Funcion dibujar comida
+// Funcion dibujar comida
     function drawFood() {
         tablero_x.fillStyle = 'blue';  // color de la comida
         tablero_x.strokestyle = 'black'; // color del borde de la comida
         tablero_x.fillRect(food_x, food_y, 10, 10);
+        // fillRect Dibuja un rectángulo relleno en la posición ( x, y ).
         tablero_x.strokeRect(food_x, food_y, 10, 10);
+        // El strokeRect() método dibuja un rectángulo (no fill) .
     }
 
     // Funcion fin de juego
@@ -119,11 +114,11 @@
         for (let i = 4; i < snake.length; i++) {
             if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
         }
-        const hitLeftWall = snake[0].x < 0;
-        const hitRightWall = snake[0].x > tablero.width - 10;
-        const hitToptWall = snake[0].y < 0;
-        const hitBottomWall = snake[0].y > tablero.height - 10;
-        return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+        const LeftWall = snake[0].x < 0;
+        const RightWall = snake[0].x > tablero.width - 10;
+        const ToptWall = snake[0].y < 0;
+        const BottomWall = snake[0].y > tablero.height - 10;
+        return LeftWall || RightWall || ToptWall || BottomWall
     }
 
 
@@ -163,15 +158,22 @@
         }
     }
 
+    document.addEventListener("keydown", input);
+
     // Funcion movimiento snake
     function move_snake() {
         const head = {x: snake[0].x + velocidad_x, y: snake[0].y + velocidad_y};
         snake.unshift(head);
+        // Metodo Unshift(): El método agrega el nuevo elemento pasado como parámetro
+        // al comienzo del arreglo cambiando por tanto su longitud y luego devuelve la misma.
         const comer_food = snake[0].x === food_x && snake[0].y === food_y;
         if (comer_food) {
             addFood();
         } else {
             snake.pop();
+            // Metodo Pop(): Este método elimina el último elemento de un arreglo
+            // y luego devuelve dicho elemento como respuesta.
+
         }
     }
 
@@ -185,12 +187,11 @@
         food_x = random_food(0, tablero.width - 10);
         food_y = random_food(0, tablero.height - 10);
         snake.forEach(function snake_food(part) {
+            // El método forEach() ejecuta la función indicada una vez por cada elemento del array.
             const comer = part.x == food_x && part.y == food_y;
             if (comer) addFood();
         });
     }
-
-
 
 </script>
 </canvas>

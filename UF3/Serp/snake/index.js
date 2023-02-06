@@ -97,11 +97,11 @@ function fin() {
     for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
     }
-    const hitLeftWall = snake[0].x < 0;
-    const hitRightWall = snake[0].x > tablero.width - 10;
-    const hitToptWall = snake[0].y < 0;
-    const hitBottomWall = snake[0].y > tablero.height - 10;
-    return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+    const LeftWall = snake[0].x < 0;
+    const RightWall = snake[0].x > tablero.width - 10;
+    const ToptWall = snake[0].y < 0;
+    const BottomWall = snake[0].y > tablero.height - 10;
+    return LeftWall || RightWall || ToptWall || BottomWall
 }
 
 
