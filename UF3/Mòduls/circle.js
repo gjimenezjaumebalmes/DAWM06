@@ -19,4 +19,6 @@ function draw10circles() {  // Funcion draw "dibujar" 10 circulos grises
 
 }
 
-export { drawarcrainbow, draw10circles};
+
+
+export {draw10circles};
