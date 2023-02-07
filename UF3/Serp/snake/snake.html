@@ -9,10 +9,11 @@
     <title>Snake</title>
 </head>
 <body>
-
+PUNTUACION :
+<P><div id="score">0</div><P>
 <canvas id="tablero" width="300" height="300">
-
 <script>
+
     /**
      * Classe que representa el joc de la serp (snake)
      * @class
@@ -32,6 +33,8 @@
 
     let food_x; // variable x de la comida
     let food_y; // variable y de la comida
+
+    let score=0;  // Puntuacion
 
     const tablero = document.getElementById("tablero");
     const tablero_x = tablero.getContext("2d");
@@ -56,12 +59,13 @@
         if (fin()) return;
         input_direction = false;
         setTimeout(function onTick() {
+            // El método setTimeout() permite ejecutar un fragmento de código, una vez transcurrido un tiempo determinado.
+            start();
             clear();
             move_snake();
             drawSnake();
-            start();
             drawFood();
-        }, 100)
+        }, 100) //Velocidad de la serpiente
     }
 
     /**
@@ -81,12 +85,13 @@
      * Dibuixa la serp al canvas
      */
     function drawSnake() {
-        snake.forEach(drawSnakePart)
+        snake.forEach(AddPartSnake)
         // El método forEach() ejecuta la función indicada una vez por cada elemento del array.
     }
 
     // Funcion partes de la serpiente
-    function drawSnakePart(snakePart) {
+    function AddPartSnake(snakePart) {
+
         tablero_x.fillStyle = snake_fondo;
         tablero_x.strokestyle = snake_border;
         tablero_x.fillRect(snakePart.x, snakePart.y, 10, 10);
@@ -112,7 +117,9 @@
     // Funcion fin de juego
     function fin() {
         for (let i = 4; i < snake.length; i++) {
-            if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+            const golpe = snake[i].x === snake[0].x && snake[i].y === snake[0].y
+            if (golpe)
+                return true
         }
         const LeftWall = snake[0].x < 0;
         const RightWall = snake[0].x > tablero.width - 10;
@@ -136,10 +143,10 @@
         if (input_direction) return;
         input_direction = true;
         const CLICK = e.keyCode;
-        const Up = velocidad_y === -10;   // constant up
-        const Down = velocidad_y === 10; // constant down
-        const Right = velocidad_x === 10; // constant right
-        const Left = velocidad_x === -10;  // constant left
+        const Up = velocidad_y === -10;   // up
+        const Down = velocidad_y === 10; // down
+        const Right = velocidad_x === 10; // right
+        const Left = velocidad_x === -10;  // left
         if (CLICK === LEFT_KEY && !Right) {
             velocidad_x = -10;
             velocidad_y = 0;
@@ -167,8 +174,10 @@
         // Metodo Unshift(): El método agrega el nuevo elemento pasado como parámetro
         // al comienzo del arreglo cambiando por tanto su longitud y luego devuelve la misma.
         const comer_food = snake[0].x === food_x && snake[0].y === food_y;
+
         if (comer_food) {
-            addFood();
+            drawPuntuacion();
+            addFood(); // Añadimos otra comida con la funcion addFood
         } else {
             snake.pop();
             // Metodo Pop(): Este método elimina el último elemento de un arreglo
@@ -192,6 +201,18 @@
             if (comer) addFood();
         });
     }
+
+    // Funcion dibujar puntuacion
+    function drawPuntuacion(){
+        score += 1; // Aumentamos 1 Puntuacion cada vez que come una food
+        document.getElementById('score').innerHTML = score;
+    }
+
+    function lost () {
+        alert("Has PERDIDO")
+    }
+
+
 
 </script>
 </canvas>
