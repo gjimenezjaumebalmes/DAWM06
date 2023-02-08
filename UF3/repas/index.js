@@ -9,8 +9,8 @@ function repas () {
     context.strokeStyle = borde;
     context.fillStyle = fondo;
 
-    context.fillRect(100, 20, canvas.height, canvas.width);
-    context.strokeRect(100, 20, 160, 100);
+    context.fillRect(0, 0, canvas.height, canvas.width);
+    context.strokeRect(0, 0, canvas.height, canvas.width);
 }
 
 repas()
