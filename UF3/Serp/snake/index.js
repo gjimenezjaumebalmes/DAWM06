@@ -3,7 +3,6 @@
  * @class
  */
 class Game {
-
     /**
      * Inicialitza els paràmetres del joc i crea el canvas
      * @constructor
@@ -12,6 +11,14 @@ class Game {
      * @param {number} amount -  nombre de quadrats per fila de la quadrícula
      */
     constructor(width,height,amount) {
+    this.width = width;
+    this.height = height;
+    this.amount = amount;
+    this.snake = [];
+    this.direction = "right";
+    this.food = [];
+    this.score = 0;
+
     }
 
     /**
