@@ -28,6 +28,12 @@ class Game {
      * @param {number} height -  height del canvas
      */
     initCanvas(width, height) {
+        this.canvas = document.createElement("canvas");
+        this.canvas.width = width;
+        this.canvas.height = height;
+        this.context = this.canvas.getContext("2d");
+        document.body.appendChild(this.canvas);
+        return this.initCanvas();
     }
 
     /**
@@ -50,6 +56,7 @@ class Game {
      * Neteja el canvas (pinta'l de blanc)
      */
     clear() {
+        this.context.clearRect(0, 0, this.width, this.height);
     }
 
     /**
@@ -100,6 +107,7 @@ class Game {
     input(e) {
     }
 }
+
 
 let game = new Game(300,300,15); // Crea un nou joc
 document.onkeydown = game.input.bind(game); // Assigna l'event de les tecles a la funció input del nostre joc
