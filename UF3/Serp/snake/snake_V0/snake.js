@@ -1,15 +1,9 @@
-    /**
-    * Classe que representa el joc de la serp (snake)
-    * @class
-    */
+    tablero_borde = 'black';
+    tablero_fondo = "white";
+    snake_fondo = 'red';
+    snake_border = 'black';
 
-    const tablero_borde = 'black';
-    const tablero_fondo = "white";
-    const snake_fondo = 'red';
-    const snake_border = 'black';
-
-    let snake = [{x: 200, y: 200},] // dibujar serpiente
-
+    snake = [{x: 200, y: 200},]; // dibujar serpiente
     // Velocitat x
     let velocidad_x = 10;
     // Velocitat y
@@ -18,14 +12,12 @@
     let food_x; // variable x de la comida
     let food_y; // variable y de la comida
 
-    let score=0;  // Puntuacion
+    let score = 0;  // Puntuacion
 
-    const tablero = document.getElementById("tablero");
-    const tablero_x = tablero.getContext("2d");
+    tablero = document.getElementById("tablero");
+    tablero_x = tablero.getContext("2d");
     // "2d", lo que lleva a la creación de un objeto CanvasRenderingContext2D
     // que representa un contexto de representación bidimensional.
-
-
 
 
     /**
@@ -62,6 +54,7 @@
     function clear() {
     tablero_x.fillStyle = tablero_fondo;
     tablero_x.strokestyle = tablero_borde;
+    // tablero_x.fillRect(x,y,w,h);
     tablero_x.fillRect(0, 0, tablero.width, tablero.height);
     tablero_x.strokeRect(0, 0, tablero.width, tablero.height);
     }
@@ -116,21 +109,21 @@
     */
 
     function input(e) {
-    const LEFT_KEY = 37;  // ->   DERECHA TECLAS ASCII 37
-    const RIGHT_KEY = 39; // <-   IZQUIERDA ASCII 39
-    const UP_KEY = 38; // /\      ARRIBA ASCII 38
-    const DOWN_KEY = 40; // \/    ABAJO ASCII 40
+    let LEFT_KEY = 37;  // ->   DERECHA TECLAS ASCII 37
+    let RIGHT_KEY = 39; // <-   IZQUIERDA ASCII 39
+    let UP_KEY = 38; // /\      ARRIBA ASCII 38
+    let DOWN_KEY = 40; // \/    ABAJO ASCII 40
 
     if (input_direction) return;
 
     input_direction = true;
 
-    const Up = velocidad_y === -10;   // up
-    const Down = velocidad_y === 10; // down
-    const Right = velocidad_x === 10; // right
-    const Left = velocidad_x === -10;  // left
+    let Up = velocidad_y === -10;   // up
+    let Down = velocidad_y === 10; // down
+    let Right = velocidad_x === 10; // right
+    let Left = velocidad_x === -10;  // left
 
-    const CLICK = e.keyCode;
+    let CLICK = e.keyCode;
 
     switch (e.keyCode) {
     case 37:
@@ -184,15 +177,18 @@
     // Funcion comida random
     function random_food(min, max) {
     return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+        // La función Math.random() genera un numero aleatorio.
+        // La función Math.round()retorna el valor de un número redondeado al entero más cercano.
 }
 
     // Funcion añadir comida
     function addFood() {
+        food_x = random_food()
     food_x = random_food(0, tablero.width - 10);
     food_y = random_food(0, tablero.height - 10);
     snake.forEach(function snake_food(part) {
     // El método forEach() ejecuta la función indicada una vez por cada elemento del array.
-    const comer = part.x == food_x && part.y == food_y;
+    const comer = part.x === food_x && part.y === food_y;
     if (comer) addFood();
 });
 }
@@ -203,6 +199,6 @@
     document.getElementById('score').innerHTML = score;
 }
 
-    function lost () {
-    alert("Has PERDIDO")
-}
+//     function lost () {
+//     alert("Has PERDIDO")
+// }
