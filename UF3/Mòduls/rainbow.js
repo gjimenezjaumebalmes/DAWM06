@@ -1,11 +1,15 @@
 
 function drawarcrainbow() {  // Funcion draw "dibujar" arco de colores
 
+    let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d"), bars = 20, i, radius = 140;
+
     context.lineWidth = 6; // Ancho de la linea
+
     // Colores arcoiris: Red, orange, yellow, green, blue, indigo, violet.
     // Array de colores
     let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "white"];
+
     for (i = 0; i < bars; i++, radius -= context.lineWidth - 1) {
         context.beginPath();
         // ctx.arc(100, 75, 50, 0, 2 * Math.PI);
