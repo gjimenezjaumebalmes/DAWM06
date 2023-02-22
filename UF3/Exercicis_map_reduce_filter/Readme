@@ -1,0 +1,19 @@
+Fent servir map/reduce/filter feu el següent.
+
+
+1. Una funció que donat un array retorni un nou array amb l'arrel quadrada de cadascun dels valors.
+2. Una funció que retorni la suma dels elements positius d'un array.
+3. Una funció que calculi el factorial d'un número. (proveu què fa
+Array.from(Array(10).keys())
+4. Una funció que et retorni la mida de cada array en un array d'arrays
+5.  Donat el següent array, volem que ens retorni els noms dels treballadors del deparatament IT que cobren menys de 60000
+
+const employees = [
+{ name: "John", salary: 50000, department: "IT" },
+{ name: "Jane", salary: 60000, department: "HR" },
+{ name: "Bob", salary: 55000, department: "IT" },
+{ name: "Sophie", salary: 75000, department: "HR" },
+{ name: "Mike", salary: 65000, department: "IT" },
+{ name: "Emily", salary: 80000, department: "HR" },
+{ name: "David", salary: 70000, department: "IT" },
+];
