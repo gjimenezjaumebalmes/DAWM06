@@ -1,0 +1,159 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+.img-1, .img-2, .img-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+/*Estil imatge 1*/
+.img-1 {
+    background-image: url("images/image1.png");
+    min-height: 100%;
+}
+/*Estil imatge 2*/
+.img-2 {
+    background-image: url("images/image2.png");
+    min-height: 400px;
+}
+
+.suvimg-2{
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: #f7f7f7
+}
+/*Estil imatge 3*/
+.img-3 {
+    background-image: url("images/image3.png");
+    min-height: 400px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: #f7f7f7;"
+}
+
+
+.div1{
+    color: #ddd;
+    background-color:#282E34;
+    text-align:center;
+    padding:50px 80px;
+    text-align: justify;
+}
+
+.subdiv1{
+    text-align:center;
+}
+
+.div3{
+    position:relative;
+}
+
+.subdiv3{
+    color:#ddd;
+    background-color:#282E34;
+    text-align:center;
+    padding:50px 80px;
+    text-align: justify;
+}
+
+.div4{
+    position:relative;
+}
+
+.subdiv4{
+    color:#ddd;
+    background-color:#282E34;
+    text-align:center;
+    padding:50px 80px;
+}
+
+.scroll{
+    position:relative;
+    min-height: 400px;
+}
+
+.mouse{
+    position:relative;
+    min-height: 400px;
+}
+
+.parallax-scroll{
+    position:relative;
+    min-height: 400px;
+}
+
+.hover {
+    position:relative;
+    min-height: 400px;
+}
+
+
+
+.caption-scroll {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: black;
+    text-align:center;
+}
+
+.caption-mouse {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: black;
+    text-align:center;
+}
+
+.caption-parallax {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: black;
+    text-align:center;
+}
+
+.caption-scroll {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: black;
+    text-align:center;
+}
+
+.caption-hover {
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    background-color:transparent;
+    color: black;
+    text-align:center;
+}
