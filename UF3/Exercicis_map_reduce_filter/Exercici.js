@@ -28,11 +28,15 @@ EX2()
 
 // Una funció que calculi el factorial d'un número. (proveu què fa Array.from(Array(10).keys())
 function EX3() {
-    let a = [1, 2, 3, 4, 5];  
-    function fact(x) {
-       return (x === 0) ? 1 : x * fact(x-1);
-    }
-    console.log(a.map(fact));
+
+    //Opcio 1
+    // let a = [1, 2, 3, 4, 5];
+    // function fact(x) {
+    //    return (x === 0) ? 1 : x * fact(x-1);
+    // }
+    // console.log(a.map(fact));
+
+
 }
 
 EX3()

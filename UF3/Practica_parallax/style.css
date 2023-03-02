@@ -5,7 +5,7 @@ body, html {
     color: #777;
 }
 
-.img-1, .img-2, .img-3 {
+.img-1, .img-2, .img-3, .img-4 {
     position: relative;
     opacity: 0.65;
     background-attachment: fixed;
@@ -25,7 +25,7 @@ body, html {
     min-height: 400px;
 }
 
-.suvimg-2{
+.subimg-2{
     padding: 18px;
     font-size: 25px;
     letter-spacing: 10px;
@@ -36,6 +36,13 @@ body, html {
 .img-3 {
     background-image: url("images/image3.png");
     min-height: 400px;
+}
+
+/*Estil imatge 4*/
+.img-4 {
+    background-image: url("images/image7.png");
+    min-height: 400px;
+    opacity: 0.65;
 }
 
 .caption {
@@ -52,7 +59,7 @@ body, html {
     font-size: 25px;
     letter-spacing: 10px;
     background-color:transparent;
-    color: #f7f7f7;"
+    color: white;
 }
 
 
@@ -67,6 +74,19 @@ body, html {
 .subdiv1{
     text-align:center;
 }
+
+.div2{
+    color: #ddd;
+    background-color:#282E34;
+    text-align:center;
+    padding:50px 80px;
+    text-align: justify;
+}
+
+.subdiv2{
+    text-align:center;
+}
+
 
 .div3{
     position:relative;
@@ -157,3 +177,166 @@ body, html {
     color: black;
     text-align:center;
 }
+
+h2 {
+    font-family:Arial,Helvetica,sans-serif;
+    display:block;
+    font-size:1.5em;
+    padding:20% 0;
+    text-align:center
+}
+
+article {
+    width:700px
+}
+
+.parallaxBackground {
+    margin:0 auto;
+    width:100%;
+    height:100%;
+    position:relative;
+    background-position:50% 0;
+    background-repeat:repeat;
+    background-attachment:fixed;
+    position:relative
+}
+
+.one {
+    background-image: url("images/image4.png");
+    opacity: 0.65;
+}
+
+
+.two {
+    background-image: url("images/image5.png");
+    opacity: 0.65;
+}
+
+.three {
+    background-image: url("images/image6.png");
+    opacity: 0.65;
+}
+
+.bodycolors{
+    background: #fff;
+    color: #fff;
+}
+
+.contentcolors {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    max-width: 100%;
+    width: 100vw;
+}
+
+.divcolors {
+    font-size: 30px;
+    font-weight: bold;
+    height: 200px;
+    line-height: 200px;
+    margin: 1em;
+    text-align: center;
+    width: 300px;
+}
+
+.container {
+    display: grid;
+    grid: auto / repeat(3, 400px);
+    gap: 1.25rem;
+    margin-inline: max(0px, ((100% - 800px) / 2));
+}
+
+.card {
+    --rx: 0;
+    --ry: 0;
+    --duration: 200ms;
+    opacity: 0.65;
+    border-radius: 1rem;
+    box-shadow: 0 2px 20px rgb(10 10 10 / 0.54);
+    transform-style: preserve-3d;
+    transition: var(--duration) ease-out;
+    transform: perspective(500px) rotateX(var(--rx)) rotateY(var(--ry));
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+}
+
+
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.body-bg{
+    background-image: url(images/image10.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 120%;
+    width: 120%;
+    left: -10%;
+    top: -10%;
+    position: absolute;
+    z-index: 0;
+    filter: blur(60px);
+}
+
+.body-bg img{
+    position: relative;
+    width: 100%;
+}
+
+#parallax {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/image10.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+    opacity: 0.65;
+}
+
+.parallax{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: relative;
+    z-index: 0;
+}
+
+.parallax__person{
+    height: 100%;
+    background: url('images/image11.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+
+
+

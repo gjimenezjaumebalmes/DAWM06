@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ES">
 <head>
     <link rel="stylesheet" href="style.css">
+    <title>PARALLAX</title>
 </head>
 <body>
+
+
 
 <!--Imatge1-->
 <div class="img-1">
     <div class="caption">
-        <span class="border">SCROLL DOWN</span>
+        <span class="border">SCROLL DOWN CSS<p>Efecte de parallaxis amb el scroll CSS</p></span>
     </div>
 </div>
 
 <div class="div1">
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
+
 </div>
 
 <!--Imatge2-->
 <div class="img-2">
 </div>
 
+<div class="div2">
+    <div class="subdiv2">
+
+    </div>
+</div>
+
+<div class="img-4">
+</div>
+
 <div class="div3">
     <div class="subdiv3">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.</p>
+
     </div>
 </div>
 
@@ -40,52 +42,74 @@
 <div class="img-3">
     <div class="caption">
         <span class="border">SCROLL UP</span>
+        <h1></h1>
     </div>
 </div>
 
 <div class="div4">
     <div class="subdiv4">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-        </p>
+
     </div>
 </div>
 
-<div class="img-1">
-</div>
+
 
 <div class="scroll">
     <div class="caption-scroll">
-    <span class="border">SCROLL</span>
+    <span class="border">SCROLL JS</span>
+        <h3>Animacions activades amb l'scroll</h3>
 <!--    - Animacions activades amb l'scroll-->
+        <div class="parallax">
+            <div class="parallax__person"></div>
+            <h1 class="logo">EXPLORE</h1>
+        </div>
     </div>
 </div>
 
 <div class="mouse">
     <div class="caption-mouse">
     <span class="border">MOUSE</span>
+        <h3>Efecte de parallaxis amb el moviment del ratoli</h3>
 <!--    - Efecte de paral·laxis amb el moviment del ratolí.-->
+        <div id="parallax"></div>
 </div>
 </div>
 
 <div class="parallax-scroll">
     <div class="caption-parallax">
     <span class="border">PARALLAX SCROLL</span>
+        <h3>Efecte de parallaxis amb l'scroll</h3>
 <!--    - Efecte de paral·laxis amb l'scroll.-->
-</div>
+        <div class="parallaxBackground one" data-scroll-speed="15"><article><h2></h2></article> </div>
+
+        <div class="parallaxBackground two" data-scroll-speed="15"><article><h2></h2></article> </div>
+
+        <div class="parallaxBackground three" data-scroll-speed="10 "><article><h2></h2></article> </div>
+    </div>
 </div>
 
 <div class="hover">
     <div class="caption-hover">
     <span class="border">HOVER</span>
+        <h3>Animacio activada amb el hover</h3>
 <!--    - Animació activada amb el hover.-->
+        <div class="container">
+            <div class="card">
+                <img src="images/image8.png" alt="">
+            </div>
+            <div class="card">
+                <img src="images/image9.png" alt="">
+            </div>
+        </div>
+
 </div>
 </div>
+
+
+<script src="./js/scroll.js"></script>
+<script src="./js/hover.js"></script>
+<script src="./js/parallax-scroll.js"></script>
+<script src="./js/mouse.js"></script>
 
 </body>
 </html>
