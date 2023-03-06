@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     font: 400 15px/1.8 "Lato", sans-serif;
     color: #777;
+    min-height: 500vh;
 }
 
 .img-1, .img-2, .img-3, .img-4 {
@@ -34,6 +35,7 @@ body, html {
 }
 /*Estil imatge 3*/
 .img-3 {
+
     background-image: url("images/image3.png");
     min-height: 400px;
 }
@@ -52,6 +54,7 @@ body, html {
     width: 100%;
     text-align: center;
     color: #000;
+    min-height: 500vh;
 }
 
 .caption span.border {
@@ -131,6 +134,11 @@ body, html {
     min-height: 400px;
 }
 
+
+.cards {
+    position:relative;
+    min-height: 400px;
+}
 
 
 .caption-scroll {
@@ -242,12 +250,8 @@ article {
     width: 300px;
 }
 
-.container {
-    display: grid;
-    grid: auto / repeat(3, 400px);
-    gap: 1.25rem;
-    margin-inline: max(0px, ((100% - 800px) / 2));
-}
+
+/*- Animació activada amb el hover.*/
 
 .card {
     --rx: 0;
@@ -275,15 +279,6 @@ img {
     border-radius: 1rem;
 }
 
-
-
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
 .body-bg{
     background-image: url(images/image10.png);
     background-size: cover;
@@ -303,16 +298,7 @@ img {
     width: 100%;
 }
 
-#parallax {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url(images/image10.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position: 50% 50%;
-    opacity: 0.65;
-}
+/*Efecte de parallaxis amb l'scroll*/
 
 .parallax{
     height: 100vh;
@@ -322,6 +308,17 @@ img {
     background-position: 50%;
     position: relative;
     z-index: 0;
+}
+
+#parallax {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/image10.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+    opacity: 0.65;
 }
 
 .parallax__person{
@@ -338,5 +335,94 @@ img {
 }
 
 
+/*Animacions activades amb l'scroll*/
+
+svg {
+    position: fixed;
+    top: 50%;
+    align: center;
+    animation: rotate 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    margin: 2rem;
+
+    transform-style: preserve-3d;
+    transform: perspective(100rem);
+
+    cursor: pointer;
+}
+
+.container {
+    --rX: 0;
+    --rY: 0;
+    --bX: 50%;
+    --bY: 80%;
+
+    width: 30rem;
+    height: 36rem;
+    border: 1px solid var(--background-color);
+    border-radius: 1.6rem;
+    padding: 4rem;
+
+    display: flex;
+    align-items: flex-end;
+
+    position: relative;
+    transform: rotateX(calc(var(--rX) * 1deg)) rotateY(calc(var(--rY) * 1deg));
+
+    background: linear-gradient(hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1)), url("images/image13.png");
+    background-position: var(--bX) var(--bY);
+    background-size: 40rem auto;
+    box-shadow: 0 0 3rem .5rem hsla(0, 0%, 0%, .2);
+
+    transition: transform .6s 1s;
+}
+
+.container::before,
+.container::after {
+    content: "";
+
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #fff;
+
+    position: absolute;
+    z-index: 2;
+
+    opacity: .3;
+    transition: .3s;
+}
+
+.container::before {
+    top: 2rem;
+    right: 2rem;
+
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
 
 
+
+.wrap:hover .container::before,
+.wrap:hover .container::after {
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+}
