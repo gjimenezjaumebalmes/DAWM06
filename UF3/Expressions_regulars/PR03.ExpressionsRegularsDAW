@@ -1,0 +1,145 @@
+Expressions regulars
+
+Referències:
+Feu servir el següent document per aprendre com funcionen les expressions regulars:
+
+https://github.com/ziishaned/learn-regex/blob/master/translations/README-es.md
+
+https://eloquentjavascript.net/09_regexp.html
+Mots encreuats:
+
+Passeu-vos els 3 primers nivells del següent joc:
+https://regexcrossword.com/
+
+Llegint expressions regulars (poden haver opcions múltiples):
+1. Quin dels següents textos encaixa amb l’expressió regular /a(ab)*a/
+1) abababa
+x2) aaba
+x3) aabbaa
+4) aba
+x5) aabababa
+
+2. Quin dels següents textos encaixa amb l’expressió regular /ab+c?/
+x1) abc
+2) ac
+x3) abbb
+4) bbc
+
+3. Quin dels següents textos encaixa amb l’expressió regular /a.[bc]+/
+x1) abc
+x2) abbbbbbbb
+x3) azc
+x4) abcbcbcbc
+5) ac
+x6) asccbbbbcbcccc
+
+4. Quin dels següents textos encaixa amb l’expressió regular /abc|xyz/
+x1) abc
+x2) xyz
+x3) abc|xyz
+
+5. Quin dels següents textos encaixa amb l’expressió regular /[a-z]+[\.\?!]/
+x1) battle!
+2) Hot
+3) green
+x4) swamping.
+x5) jump up.
+x6) undulate?
+x7) is.?
+
+
+6. Quin dels següents textos encaixa amb l’expressió regular /[a-zA-Z]*[^,]=/
+1) Butt=
+2) BotHEr,=
+3) Ample
+4) FIdDlE7h=
+5) Brittle =
+x6) Other.=
+
+
+7. Quin dels següents textos encaixa amb l’expressió regular /[a-z][\.\?!]\s+[A-Z]/
+(\s significa qualsevol caràcter d’espai com ara un espai o un tabulador)
+1) A. B
+2) c! d
+3) e f
+x4) g. H
+x5) i? J
+6) k L
+
+8. Quin dels següents textos encaixa amb l’expressió regular
+/(very )+(fat)?(tall|ugly) man/
+
+1) very fat man
+2) fat tall man
+3) very very fat ugly man
+x4) very very very tall man
+
+9. Quin dels següents textos encaixa amb l’expressió regular /<[^>]+>/
+
+x1) <an xml tag>
+x2) <opentag> <closetag>
+x3) </closetag>
+4) <>
+x5) <with attribute=”77”>
+
+Construint expressions regulars:
+
+// Donat el següent codi javascript, ompliu les expressions regulars per tal que tots els valors
+del primer array passat a la funció «verify» encaixin amb l’expressió regular i els del segon
+array no ho facin.
+
+verify(/.../,
+["my car", "bad cats"],
+["camper", "high art"]);
+
+Resposta : /^(my|bad)\s\w+/
+
+
+verify(/.../,
+["pop culture", "mad props"],
+["plop", "prrrop"]);
+
+Resposta : /^(my|bad)\s\w+/
+
+verify(/.../,
+["ferret", "ferry", "ferrari"],
+["ferrum", "transfer A"]);
+
+Resposta : /^ferr(et|y|ari)$/
+
+verify(/.../,
+["how delicious", "spacious room"],
+["ruinous", "consciousness"]);
+
+Resposta : /^(how|spacious)\s\w+/
+
+verify(/.../,
+["bad punctuation ."],
+["escape the period"]);
+
+Resposta : /^bad\spunctuation\s.$/
+
+verify(/.../,
+["Siebentausenddreihundertzweiundzwanzig"],
+["no", "three small words"]);
+
+Resposta : /^S\w{25}$/
+
+verify(/.../,
+["red platypus", "wobbling nest"],
+["earth bed", "learning ape", "BEET"]);
+
+Resposta : /^(red|wobbling)\s\w+/
+
+
+function verify(regexp, yes, no) {
+// Ignore unfinished exercises
+if (regexp.source == "...") return;
+for (let str of yes) if (!regexp.test(str)) {
+console.log(`Failure to match '${str}'`);
+}
+for (let str of no) if (regexp.test(str)) {
+console.log(`Unexpected match for '${str}'`);
+}
+}
+
