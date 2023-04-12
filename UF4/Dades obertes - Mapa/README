@@ -1,0 +1,13 @@
+Aquí teniu un servei de dades obertes proporcionat per l'ajuntament de Barcelona:
+https://barcelonadadescultura.bcn.cat/dades-obertes/
+Avís: Feu servir https als enllaços de la API
+
+
+Exercici 1
+Trieu un tipus d'instal·lació (cinemes, espais de concert, biblioteques ...) i mireu com consultar-ne la informació.
+
+Exercici 2
+Useu la informació retornada amb el codi de l'exercici anterior per tal de crear un mapa amb marcadors a la localització de cada instal·lació del tipus triat.
+
+Exercici 3
+Feu que quan es premi un dels marcadors es visualitzi la informació relacionada amb elements HTML.

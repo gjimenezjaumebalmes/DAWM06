@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitants de museus i exposicions de Barcelona</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Any</th>
+        <th>Mes</th>
+        <th>Museu o exposició</th>
+        <th>Visitants</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    const url = 'https://dades.eicub.net/api/1/museusexposicions-visitants';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector('tbody');
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td>${row.any}</td>
+            <td>${row.mes}</td>
+            <td>${row.nom_museu}</td>
+            <td>${row.visitants}</td>
+          `;
+                tbody.appendChild(tr);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+</script>
+</body>
+</html>

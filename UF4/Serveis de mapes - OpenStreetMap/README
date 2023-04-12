@@ -1,0 +1,17 @@
+Exercici 1:
+Feu un mapa simple centrat a barcelona.
+
+Exercici 2:
+Afegiu un marcador a un lloc determinat del mapa
+
+Exercici 3:
+Feu que el marcador es pugui clicar i mostri informació.
+Feu servir el següent codi per afegir una funció a l'event de clicar del marcador.
+marker.events.register("mousedown", marker, function() {
+            #codi aquí
+});
+
+Exercici 4:
+Afegiu 3 inputs (nom, latitud, longitud) i un botó.
+Quan es cliqui el botó s'ha d'afegir un marcador a la latitud i longitud introduïda.
+Quan es cliqui el marcador t'ha de dir el nom introduït.
