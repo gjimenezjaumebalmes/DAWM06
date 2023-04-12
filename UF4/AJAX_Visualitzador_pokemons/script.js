@@ -6,7 +6,7 @@ function buscarPokemon(nombre) {
             var data = JSON.parse(this.responseText);
             var nombre = data.name;
             var imagen = data.sprites.front_default;
-            var imagen_art = data.sprites.other.dream_world.front_default;
+            var imagen_art = data.sprites.other["official-artwork"].front_default;
             var imagen_back = data.sprites.back_default;
             var imagen_shinny = data.sprites.front_shiny;
             var imagen_shinny_back = data.sprites.back_shiny;
