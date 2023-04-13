@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapa de Barcelona amb Marcador Aleatori</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://openlayers.org/en/v6.5.0/css/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v6.5.0/build/ol.js"></script>
+</head>
+<body>
+<!-- Element POPUP amb la informació -->
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+</div>
+<!-- Element Formulari -->
+<form id="marker-form">
+    <label for="lat-input">Latitud:</label>
+    <input type="number" id="lat-input" step="any" required>
+    <label for="lon-input">Longitud:</label>
+    <input type="number" id="lon-input" step="any" required>
+    <label for="name-input">Nom:</label>
+    <input type="text" id="name-input" required>
+    <button type="submit">Afegir marcador</button>
+</form>
+<p></p>
+<!-- Element on es mostrarà el mapa -->
+<div id="map"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,66 +1,65 @@
-// Coordenadas límite de la ciudad de Barcelona
-var lonMin = 1.6697;
-var lonMax = 2.2330;
-var latMin = 41.2969;
-var latMax = 41.4680;
+// Coordenades aleatòries dins de l'àrea de la ciutat de Barcelona
+var lat = 41.34 + Math.random() * 0.12; // Genera una latitud aleatòria entre 41.34 i 41.46 (coordenades límit de la ciutat)
+var lon = 2.08 + Math.random() * 0.2; // Genera una longitud aleatòria entre 2.08 i 2.28 (coordenades límit de la ciutat)
 
-// Generar coordenadas aleatorias dentro de los límites de la ciudad de Barcelona
-var lat = Math.random() * (latMax - latMin) + latMin;
-var lon = Math.random() * (lonMax - lonMin) + lonMin;
-
-// Crear la fuente del marcador
-var markerSource = new ol.source.Vector({
-    features: [
-        new ol.Feature({
-            geometry: new ol.geom.Point(ol.proj.fromLonLat([lon, lat]))
+// Crea la capa de marcador
+var markerLayer = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+    style: new ol.style.Style({
+        image: new ol.style.Icon({
+            src: 'https://openlayers.org/en/v6.5.0/examples/data/icon.png' // Defineix una imatge pel marcador
         })
-    ]
-});
-
-// Crear el estilo del marcador
-var markerStyle = new ol.style.Style({
-    image: new ol.style.Icon({
-        src: 'https://openlayers.org/en/v6.5.0/examples/data/icon.png'
     })
 });
 
-// Crear la capa del marcador
-var markerLayer = new ol.layer.Vector({
-    source: markerSource,
-    style: markerStyle
-});
-
-// Crear el mapa
+// Crea el mapa
 var map = new ol.Map({
-    target: 'map',
+    target: 'map', // Indica el div on s'insertarà el mapa
     layers: [
         new ol.layer.Tile({
-            source: new ol.source.OSM()
+            source: new ol.source.OSM() // Afegeix una capa de tiles d'OpenStreetMap al mapa
         }),
-        markerLayer
+        markerLayer // Afegeix la capa de marcador al mapa
     ],
     view: new ol.View({
-        center: ol.proj.fromLonLat([lon, lat]),
-        zoom: 13
+        center: ol.proj.fromLonLat([2.1734, 41.3851]), // Centra el mapa a Barcelona
+        zoom: 13 // Defineix el nivell de zoom inicial del mapa
     })
 });
 
-// Crear overlay y popup para mostrar información del marcador
-var overlay = new ol.Overlay({
-    element: document.getElementById('popup-container'),
-    autoPan: true,
-    autoPanAnimation: { duration: 250 }
+markerLayer.getSource().on('addfeature', function(evt) {
+    var feature = evt.feature;
+    var coordinates = feature.getGeometry().getCoordinates();
+    var popupContent = '<p>Coordenades: ' + coordinates + '</p>';
+    var popup = new ol.Overlay({
+        element: document.getElementById('popup'),
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+    });
+    map.addOverlay(popup);
+    popup.setPosition(coordinates);
+    document.getElementById('popup-content').innerHTML = popupContent;
 });
-map.addOverlay(overlay);
-var popupContent = document.getElementById('popup-content');
 
-// Agregar evento de clic al marcador
-markerLayer.getSource().on('click', function (evt) {
-    var coordinate = evt.coordinate;
-    var content = '<p>Latitud: ' + coordinate[1] + '</p>' +
-        '<p>Longitud: ' + coordinate[0] + '</p>';
-    // Mostrar popup con la información
-    overlay.setPosition(coordinate);
-    popupContent.innerHTML = content;
-    overlay.setOffset([0, -22]);
+// Crea una nova característica de tipus Point amb les coordenades aleatòries
+var marker = new ol.Feature({
+    geometry: new ol.geom.Point(ol.proj.fromLonLat([lon, lat]))
+});
+
+markerLayer.getSource().addFeature(marker);
+
+// Mostra les coordenades al fer clic sobre el marcador
+marker.events.register("mousedown", marker, function(evt) {
+    var coordinates = this.getGeometry().getCoordinates();
+    var popupContent = '<p>Coordenades: ' + coordinates + '</p>';
+    var popup = new ol.Overlay({
+        element: document.getElementById('popup'),
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+    });
+    map.addOverlay(popup);
+    popup.setPosition(coordinates);
+    document.getElementById('popup-content').innerHTML = popupContent;
 });
