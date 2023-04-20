@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de museos y exposiciones de Barcelona</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@6.6.1/dist/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v6.6.1/build/ol.js"></script>
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+        .popup {
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Mapa de museos y exposiciones de Barcelona</h1>
+<div id="map" class="map"></div>
+<div id="popup" class="ol-popup popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
