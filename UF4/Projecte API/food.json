@@ -1,88 +1,87 @@
 {
   "doner_kebab": {
-    "ingredientes": [
-      "Carne de cordero, ternera o pollo",
-      "Sal",
-      "Pimienta negra",
-      "Comino molido",
-      "Cebolla",
-      "Ajo",
-      "Yogur griego",
-      "Jugo de limón",
-      "Tomate",
-      "Lechuga",
-      "Pepino",
-      "Pan de pita"
+    "ingredients": [
+      "1 beef,",
+      "1 Salt,",
+      "1 Black pepper,",
+      "1 Ground cumin,",
+      "1 Onion,",
+      "1 Garlic,",
+      "1 Greek yogurt,",
+      "1 Lemon juice,",
+      "1 Tomato,",
+      "1 Lettuce,",
+      "1 Cucumber,",
+      "1 Pita bread,"
     ]
   },
   "shish_kebab": {
-    "ingredientes": [
-      "Carne de cordero o pollo",
-      "Aceite de oliva",
-      "Yogur",
-      "Ajo",
-      "Comino molido",
-      "Cilantro",
-      "Limón",
-      "Sal",
-      "Pimienta negra",
-      "Tomates",
-      "Cebolla",
-      "Pimiento verde",
-      "Pimiento rojo",
-      "Pan de pita"
+    "ingredients": [
+      "1 chicken,",
+      "1 Olive oil,",
+      "1 Yogurt,",
+      "1 Garlic,",
+      "1 Ground cumin,",
+      "1 Cilantro,",
+      "1 Lemon,",
+      "1 Salt,",
+      "1 Black pepper,",
+      "1 Tomatoes,",
+      "1 Onion,",
+      "1 Green pepper,",
+      "1 Red pepper,",
+      "1 Pita bread,"
     ]
   },
   "adana_kebab": {
-    "ingredientes": [
-      "Carne de cordero picada",
-      "Pimiento rojo picado",
-      "Pimiento verde picado",
-      "Cebolla picada",
-      "Ajo picado",
-      "Comino molido",
-      "Sal",
-      "Pimienta negra",
-      "Aceite de oliva",
-      "Tomates",
-      "Pepino",
-      "Pan de pita"
+    "ingredients": [
+      "1 lamb,",
+      "1 red pepper,",
+      "1 green pepper,",
+      "1 onion,",
+      "1 garlic,",
+      "1 Ground cumin,",
+      "1 Salt,",
+      "1 Black pepper,",
+      "1 Olive oil,",
+      "1 Tomatoes,",
+      "1 Cucumber,",
+      "1 Pita bread,"
     ]
   },
   "kofte_kebab": {
-    "ingredientes": [
-      "Carne de cordero o ternera picada",
-      "Cebolla picada",
-      "Ajo picado",
-      "Perejil picado",
-      "Comino molido",
-      "Sal",
-      "Pimienta negra",
-      "Aceite de oliva",
-      "Tomates",
-      "Lechuga",
-      "Pepino",
-      "Pan de pita"
+    "ingredients": [
+      "1 beef,",
+      "1 onion,",
+      "1 garlic,",
+      "1 parsley,",
+      "1 Ground cumin,",
+      "1 Salt,",
+      "1 Black pepper,",
+      "1 Olive oil,",
+      "1 Tomatoes,",
+      "1 Lettuce,",
+      "1 Cucumber,",
+      "1 Pita bread,"
     ]
   },
   "falafel": {
-    "ingredientes": [
-      "Garbanzos cocidos",
-      "Cebolla picada",
-      "Ajo picado",
-      "Perejil picado",
-      "Cilantro picado",
-      "Comino molido",
-      "Harina de garbanzo",
-      "Levadura en polvo",
-      "Sal",
-      "Pimienta negra",
-      "Aceite de oliva",
-      "Pan de pita",
-      "lechug",
-      "tomate",
-      "pepino",
-      "Salsa de yogur o tahini"
+    "ingredients": [
+      "1 chickpeas,",
+      "1 onion,",
+      "1 garlic,",
+      "1 parsley,",
+      "1 cilantro,",
+      "1 Ground cumin,",
+      "1 Chickpea flour,",
+      "1 Salt,",
+      "1 Black pepper,",
+      "1 Olive oil,",
+      "1 Pita bread,",
+      "1 Lettuce,",
+      "1 Tomato,",
+      "1 Cucumber,",
+      "1 tahini,"
     ]
   }
 }

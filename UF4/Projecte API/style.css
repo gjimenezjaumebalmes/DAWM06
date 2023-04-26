@@ -18,9 +18,33 @@ h1 {
 
 }
 
+#ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredientes-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#eliminar{
+    margin-right: 10px;
+
+}
+
+
 #seleccionar {
     text-align: center;
 }
+
+#calcular{
+    text-align: center;
+
+}
+
 
 #botones{
     text-align: center;

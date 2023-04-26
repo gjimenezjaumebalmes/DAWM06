@@ -22,16 +22,20 @@
     <p></p>
 </div>
 
-<div id="ingredientes"></div>
-
-<div id="botones">
-    <button id="agregar" disabled>Añadir Ingrediente</button>
-    <button id="eliminar" disabled>Eliminar Ingrediente</button>
-    <p></p>
-    <button id="calcular" disabled>Calcular Nutrición</button>
+<div id="divIngredientes">
+    <ul id="ingredients"></ul>
+    <div id="botones">
+        <br><br><button id="agregar" class="btn-agregar" disabled>Añadir Ingrediente</button><br><br>
+        <br><br><button id="eliminar" class="btn-eliminar" disabled>Eliminar Ingrediente</button><br><br>
+        <button id="reset">Reset</button>
+        <p></p>
+        <button id="calcular" disabled>Calcular Nutrición</button>
+        <p></p>
+    </div>
+    <div id="resultado"></div>
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
 
