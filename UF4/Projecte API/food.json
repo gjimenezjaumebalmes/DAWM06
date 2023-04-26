@@ -1,0 +1,88 @@
+{
+  "doner_kebab": {
+    "ingredientes": [
+      "Carne de cordero, ternera o pollo",
+      "Sal",
+      "Pimienta negra",
+      "Comino molido",
+      "Cebolla",
+      "Ajo",
+      "Yogur griego",
+      "Jugo de limón",
+      "Tomate",
+      "Lechuga",
+      "Pepino",
+      "Pan de pita"
+    ]
+  },
+  "shish_kebab": {
+    "ingredientes": [
+      "Carne de cordero o pollo",
+      "Aceite de oliva",
+      "Yogur",
+      "Ajo",
+      "Comino molido",
+      "Cilantro",
+      "Limón",
+      "Sal",
+      "Pimienta negra",
+      "Tomates",
+      "Cebolla",
+      "Pimiento verde",
+      "Pimiento rojo",
+      "Pan de pita"
+    ]
+  },
+  "adana_kebab": {
+    "ingredientes": [
+      "Carne de cordero picada",
+      "Pimiento rojo picado",
+      "Pimiento verde picado",
+      "Cebolla picada",
+      "Ajo picado",
+      "Comino molido",
+      "Sal",
+      "Pimienta negra",
+      "Aceite de oliva",
+      "Tomates",
+      "Pepino",
+      "Pan de pita"
+    ]
+  },
+  "kofte_kebab": {
+    "ingredientes": [
+      "Carne de cordero o ternera picada",
+      "Cebolla picada",
+      "Ajo picado",
+      "Perejil picado",
+      "Comino molido",
+      "Sal",
+      "Pimienta negra",
+      "Aceite de oliva",
+      "Tomates",
+      "Lechuga",
+      "Pepino",
+      "Pan de pita"
+    ]
+  },
+  "falafel": {
+    "ingredientes": [
+      "Garbanzos cocidos",
+      "Cebolla picada",
+      "Ajo picado",
+      "Perejil picado",
+      "Cilantro picado",
+      "Comino molido",
+      "Harina de garbanzo",
+      "Levadura en polvo",
+      "Sal",
+      "Pimienta negra",
+      "Aceite de oliva",
+      "Pan de pita",
+      "lechug",
+      "tomate",
+      "pepino",
+      "Salsa de yogur o tahini"
+    ]
+  }
+}

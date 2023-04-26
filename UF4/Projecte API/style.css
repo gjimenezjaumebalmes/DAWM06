@@ -1,0 +1,102 @@
+/* Color de fondo */
+body {
+    background-color: #FFFFFF; /* blanco */
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000000; /* negro */
+
+
+}
+
+#seleccionar {
+    text-align: center;
+}
+
+#botones{
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: #4CAF50;
+    text-shadow: 1px 1px 0px #FFFFFF,
+    2px 2px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: center; /* Añadimos esta línea para centrar el botón horizontalmente */;
+    text-align: center;
+}
+
+select {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    color: #252525;
+}
+
+select:focus {
+    outline: none;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* verde */
+    border-color: #4CAF50; /* verde */
+    cursor: pointer;
+    text-align: center;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+table td, table th {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #ff6e00;
+    color: #ffffff;
+}

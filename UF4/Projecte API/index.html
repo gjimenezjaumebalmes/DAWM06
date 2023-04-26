@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DURUMEATS - Analizador de Nutrición de Doner Kebabs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>DURUMEATS</h2>
+<h1>Analizador de Nutrición de Doner Kebabs</h1>
+
+<div id="seleccionar">
+    <label for="plato">Selecciona un plato:</label>
+    <select id="plato">
+        <option value="">-- Selecciona un plato --</option>
+        <option value="doner_kebab">Doner Kebab</option>
+        <option value="shish_kebab">Shish Kebab</option>
+        <option value="adana_kebab">Adana Kebab</option>
+        <option value="kofte_kebab">Kofte Kebab</option>
+        <option value="falafel">Falafel</option>
+    </select>
+    <p></p>
+</div>
+
+<div id="ingredientes"></div>
+
+<div id="botones">
+    <button id="agregar" disabled>Añadir Ingrediente</button>
+    <button id="eliminar" disabled>Eliminar Ingrediente</button>
+    <p></p>
+    <button id="calcular" disabled>Calcular Nutrición</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

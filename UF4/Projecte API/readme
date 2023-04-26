@@ -1,0 +1,26 @@
+Aquest projecte consisteix en desenvolupar una aplicació que faci servir les funcionalitats que hem estat practicant fins ara.
+Hauria d'accedir a les dades d'una o més APIs i visualitzar-les. A més a més hauria de fer servir una biblioteca extra de javascript com ara una biblioteca de visualització de dades, de 3d, etc.
+
+Idees:
+
+- Predicció del temps:
+
+    Geolocalització
+    Poder cercar per localització
+    Dades del temps actuals
+    Visualització de les dades temporals amb un gràfica.
+
+- Cercador de pel·lícules (IMDB):
+
+    Cercar pel·lícules
+    mostrar estadístiques d'actors, etc amb una gràfica.
+
+- Cercador de github.
+
+    Cercar usuaris
+    mostrar estadístiques
+
+Biblioteques extra:
+
+    threejs (3d)
+    gràfiques (d3.js highcharts)
