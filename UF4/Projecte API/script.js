@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function mostrarError() {
+        divResultado.innerHTML = '';
         divResultado.innerHTML = '<p class="error">No se ha podido obtener la información nutricional. Por favor, inténtalo de nuevo más tarde.</p>';
     }
 
@@ -101,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return ingredientes;
             }
 
-// Llamada a la API de Edamam para obtener la información nutricional
+            divResultado.innerHTML = ''; // borra el contenido previo de la tabla de resultados
+
+            // Llamada a la API de Edamam para obtener la información nutricional
             fetch(`https://api.edamam.com/api/nutrition-data?app_id=91e086d1&app_key=5b11d57af4564fbe1d68749947458c08&ingr=${encodeURIComponent(convertirCadena(ingrString))}`)
                 .then(response => response.json())
                 .then(data => {
