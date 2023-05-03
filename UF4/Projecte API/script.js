@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnReset = document.getElementById('reset');
 
     let platos = {};
+    let nombreTabla = '';
 
     // Recuperamos la lista de platos del archivo JSON
     fetch('food.json')
@@ -19,6 +20,85 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error(error);
             mostrarError();
         });
+
+
+    // Agregar listener al botón "Calcular"
+    btnCalcular.addEventListener('click', () => {
+        calcularNutrientes();
+    });
+
+    function calcularNutrientes() {
+        // Crear la tabla vacía cuando se carga la página
+        const tablaNutrientes = document.createElement('table');
+        tablaNutrientes.innerHTML = `
+<thead>
+  <tr>
+    <th>Nutriente</th>
+    <th>Cantidad</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="calorias">
+    <td>Calorías</td>
+    <td id="calorias"></td>
+  </tr>
+  <tr class="grasas">
+    <td>Grasas</td>
+    <td id="grasas"></td>
+  </tr>
+  <tr class="grasasSat">
+    <td>Grasas saturadas</td>
+    <td id="grasasSat"></td>
+  </tr>
+  <tr class="carbohidratos">
+    <td>Carbohidratos</td>
+    <td id="carbohidratos"></td>
+  </tr>
+  <tr class="azucares">
+    <td>Azúcares</td>
+    <td id="azucares"></td>
+  </tr>
+  <tr class="proteinas">
+    <td>Proteínas</td>
+    <td id="proteinas"></td>
+  </tr>
+  <tr class="fibra">
+    <td>Fibra</td>
+    <td id="fibra"></td>
+  </tr>
+  <tr class="sodio">
+    <td>Sodio</td>
+    <td id="sodio"></td>
+  </tr>
+</tbody>`;
+        divResultado.appendChild(tablaNutrientes);
+
+// Función para actualizar la tabla con los valores de los nutrientes
+        function actualizarTablaNutrientes(nutrientes) {
+            // Recuperar una referencia a cada fila de la tabla por su clase
+            const caloriasRow = tablaNutrientes.querySelector('.calorias');
+            const grasasRow = tablaNutrientes.querySelector('.grasas');
+            const grasasSatRow = tablaNutrientes.querySelector('.grasasSat');
+            const carbohidratosRow = tablaNutrientes.querySelector('.carbohidratos');
+            const azucaresRow = tablaNutrientes.querySelector('.azucares');
+            const proteinasRow = tablaNutrientes.querySelector('.proteinas');
+            const fibraRow = tablaNutrientes.querySelector('.fibra');
+            const sodioRow = tablaNutrientes.querySelector('.sodio');
+
+            // Actualizar el contenido de cada celda con el valor correspondiente
+            caloriasRow.querySelector('td:last-child').textContent = nutrientes.calorias;
+            grasasRow.querySelector('td:last-child').textContent = nutrientes.grasas;
+            grasasSatRow.querySelector('td:last-child').textContent = nutrientes.grasasSat;
+            carbohidratosRow.querySelector('td:last-child').textContent = nutrientes.carbohidratos
+            azucaresRow.querySelector('td:last-child').textContent = nutrientes.azucares;
+            proteinasRow.querySelector('td:last-child').textContent = nutrientes.proteinas;
+            fibraRow.querySelector('td:last-child').textContent = nutrientes.fibra;
+            sodioRow.querySelector('td:last-child').textContent = nutrientes.sodio;
+
+        }
+    }
+
+
 
     // Función para actualizar la lista de ingredientes
     function actualizarListaIngredientes(ingredients) {
@@ -145,6 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
                     // Añadimos la tabla al documento
+                    let taules = document.getElementsByTagName('table')
+                    if (taules.length > 0 ) {
+                        taules[0].remove();
+                    }
                     document.body.appendChild(tablaNutrientes);
                 })
                 .catch(error => {
@@ -159,3 +243,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
