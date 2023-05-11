@@ -1,87 +1,69 @@
 {
   "doner_kebab": {
     "ingredients": [
-      "1 beef,",
-      "1 Salt,",
-      "1 Black pepper,",
-      "1 Ground cumin,",
-      "1 Onion,",
-      "1 Garlic,",
-      "1 Greek yogurt,",
-      "1 Lemon juice,",
-      "1 Tomato,",
-      "1 Lettuce,",
-      "1 Cucumber,",
-      "1 Pita bread,"
+      "500 g beef,",
+      "5.9 g Salt,",
+      "2.3 g Black pepper,",
+      "2.1 g Ground cumin,",
+      "110 g Onion,",
+      "9 g Garlic,",
+      "200 g Greek yogurt,",
+      "30 g Lemon juice,",
+      "200 g Tomato,",
+      "150 g Lettuce,",
+      "200 g Cucumber,",
+      "70 g Pita bread,"
     ]
   },
   "shish_kebab": {
     "ingredients": [
-      "1 chicken,",
-      "1 Olive oil,",
-      "1 Yogurt,",
-      "1 Garlic,",
-      "1 Ground cumin,",
-      "1 Cilantro,",
-      "1 Lemon,",
-      "1 Salt,",
-      "1 Black pepper,",
-      "1 Tomatoes,",
-      "1 Onion,",
-      "1 Green pepper,",
-      "1 Red pepper,",
-      "1 Pita bread,"
-    ]
-  },
-  "adana_kebab": {
-    "ingredients": [
-      "1 lamb,",
-      "1 red pepper,",
-      "1 green pepper,",
-      "1 onion,",
-      "1 garlic,",
-      "1 Ground cumin,",
-      "1 Salt,",
-      "1 Black pepper,",
-      "1 Olive oil,",
-      "1 Tomatoes,",
-      "1 Cucumber,",
-      "1 Pita bread,"
+      "500 g beef,",
+      "30 g Olive oil,",
+      "150 g Yogurt,",
+      "10 g Garlic,",
+      "5 g Ground cumin,",
+      "15 g Cilantro,",
+      "30 g Lemon,",
+      "5 g Salt,",
+      "2 g Black pepper,",
+      "150 g Tomatoes,",
+      "100 g Onion,",
+      "70 g Pita bread,"
     ]
   },
   "kofte_kebab": {
     "ingredients": [
-      "1 beef,",
-      "1 onion,",
-      "1 garlic,",
-      "1 parsley,",
-      "1 Ground cumin,",
-      "1 Salt,",
-      "1 Black pepper,",
-      "1 Olive oil,",
-      "1 Tomatoes,",
-      "1 Lettuce,",
-      "1 Cucumber,",
-      "1 Pita bread,"
+      "500 g beef,",
+      "100 g onion,",
+      "10 g garlic,",
+      "30 g parsley,",
+      "5 g ground cumin,",
+      "5 g salt,",
+      "5 g black pepper,",
+      "50 ml olive oil,",
+      "200 g tomatoes,",
+      "100 g lettuce,",
+      "100 g cucumber,",
+      "70 g pita breads,"
     ]
   },
   "falafel": {
     "ingredients": [
-      "1 chickpeas,",
-      "1 onion,",
-      "1 garlic,",
-      "1 parsley,",
-      "1 cilantro,",
-      "1 Ground cumin,",
-      "1 Chickpea flour,",
-      "1 Salt,",
-      "1 Black pepper,",
-      "1 Olive oil,",
-      "1 Pita bread,",
-      "1 Lettuce,",
-      "1 Tomato,",
-      "1 Cucumber,",
-      "1 tahini,"
+      "250 g chickpeas,",
+      "50 g onion,",
+      "10 g garlic,",
+      "15 g parsley,",
+      "15 g cilantro,",
+      "5 g Ground cumin,",
+      "50 g Chickpea flour,",
+      "5 g Salt,",
+      "2 g Black pepper,",
+      "50 ml Olive oil,",
+      "70 g Pita bread,",
+      "50 g Lettuce,",
+      "50 g Tomato,",
+      "50 g Cucumber,",
+      "50 g tahini,"
     ]
   }
 }
