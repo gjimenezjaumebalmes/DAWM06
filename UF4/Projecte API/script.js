@@ -1,185 +1,190 @@
-// Objeto para almacenar los valores de los nutrientes
-const valoresNutrientes = {
-    'Grasas': 0,
-    'Grasas saturadas': 0,
-    'Carbohidratos': 0,
-    'Azúcares': 0,
-    'Proteínas': 0,
-    'Fibra': 0,
-    'Sodio': 0
-};
+    // Objeto para almacenar los valores de los nutrientes
+    const valoresNutrientes = {
+        'Grasas': 0,
+        'Grasas saturadas': 0,
+        'Carbohidratos': 0,
+        'Azúcares': 0,
+        'Proteínas': 0,
+        'Fibra': 0,
+        'Sodio': 0
+    };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const selectPlato = document.getElementById('plato');
-    const btnCalcular = document.getElementById('calcular');
-    const divResultado = document.getElementById('resultado');
-    const divIngredientes = document.getElementById('ingredients');
-    const btnEliminar = document.getElementById('eliminar');
-    const btnReset = document.getElementById('reset');
+            const selectPlato = document.getElementById('plato');
+            const btnCalcular = document.getElementById('calcular');
+            const divResultado = document.getElementById('resultado');
+            const divIngredientes = document.getElementById('ingredients');
+            const btnEliminar = document.getElementById('eliminar');
+            const btnReset = document.getElementById('reset');
 
-    let platos = {};
-    let nutrientes = {}; // Agregar la variable nutrientes en el alcance global
+            let platos = {};
+            let nutrientes = {}; // Agregar la variable nutrientes en el alcance global
 
-    // let nombreTabla = '';
+            // let nombreTabla = '';
 
-    // Recuperamos la lista de platos del archivo JSON
-    fetch('food.json')
-        .then(response => response.json())
-        .then(data => {
-            platos = data;
-            btnCalcular.disabled = false;
-        })
-        .catch(error => {
-            console.error(error);
-            mostrarError();
-        });
-
-
-    // Agregar listener al botón "Calcular"
-    btnCalcular.addEventListener('click', () => {
-        calcularNutrientes(nutrientes)
-    });
-
-    function calcularNutrientes() {
-        nutrientes = {}; // Crear objeto nutrientes vacío
-        // Crear la tabla vacía cuando se carga la página
-
-        const tablaNutrientes = document.createElement('table');
-        tablaNutrientes.innerHTML = `
-    <thead>
-      <tr>
-        <th>Nutriente</th>
-        <th>Cantidad</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="calorias">
-        <td>Calorías</td>
-        <td id="calorias"></td>
-      </tr>
-      <tr class="grasas">
-        <td>Grasas</td>
-        <td id="grasas"></td>
-      </tr>
-      <tr class="grasasSat">
-        <td>Grasas saturadas</td>
-        <td id="grasasSat"></td>
-      </tr>
-      <tr class="carbohidratos">
-        <td>Carbohidratos</td>
-        <td id="carbohidratos"></td>
-      </tr>
-      <tr class="azucares">
-        <td>Azúcares</td>
-        <td id="azucares"></td>
-      </tr>
-      <tr class="proteinas">
-        <td>Proteínas</td>
-        <td id="proteinas"></td>
-      </tr>
-      <tr class="fibra">
-        <td>Fibra</td>
-        <td id="fibra"></td>
-      </tr>
-      <tr class="sodio">
-        <td>Sodio</td>
-        <td id="sodio"></td>
-      </tr>
-    </tbody>`;
-        divResultado.appendChild(tablaNutrientes);
-    }
-
-    // Función para actualizar la tabla con los valores de los nutrientes
-    function actualizarTablaNutrientes(nutrientes) {
-        // Recuperar una referencia a cada fila de la tabla por su clase
-        const caloriasRow = tablaNutrientes.querySelector('.calorias');
-        const grasasRow = tablaNutrientes.querySelector('.grasas');
-        const grasasSatRow = tablaNutrientes.querySelector('.grasasSat');
-        const carbohidratosRow = tablaNutrientes.querySelector('.carbohidratos');
-        const azucaresRow = tablaNutrientes.querySelector('.azucares');
-        const proteinasRow = tablaNutrientes.querySelector('.proteinas');
-        const fibraRow = tablaNutrientes.querySelector('.fibra');
-        const sodioRow = tablaNutrientes.querySelector('.sodio');
-
-        // Actualizar el contenido de cada celda con el valor correspondiente
-        caloriasRow.querySelector('td:last-child').textContent = nutrientes.calorias;
-        grasasRow.querySelector('td:last-child').textContent = nutrientes.grasas;
-        grasasSatRow.querySelector('td:last-child').textContent = nutrientes.grasasSat;
-        carbohidratosRow.querySelector('td:last-child').textContent = nutrientes.carbohidratos
-        azucaresRow.querySelector('td:last-child').textContent = nutrientes.azucares;
-        proteinasRow.querySelector('td:last-child').textContent = nutrientes.proteinas;
-        fibraRow.querySelector('td:last-child').textContent = nutrientes.fibra;
-        sodioRow.querySelector('td:last-child').textContent = nutrientes.sodio;
-
-    }
+            // Recuperamos la lista de platos del archivo JSON
+            fetch('food.json')
+                .then(response => response.json())
+                .then(data => {
+                    platos = data;
+                    btnCalcular.disabled = false;
+                })
+                .catch(error => {
+                    console.error(error);
+                    mostrarError();
+                });
 
 
-    // Función para actualizar la lista de ingredientes
-    function actualizarListaIngredientes(ingredients) {
-        let html = '';
-        for (let i = 0; i < ingredients.length; i++) {
-            html += `<li class="ingredientes-item">${ingredients[i]}<button class="eliminar" data-index="${i}">Eliminar</button></li>`;
-        }
+            // Agregar listener al botón "Calcular"
+            btnCalcular.addEventListener('click', () => {
+                calcularNutrientes(nutrientes)
+                btnCalcular.style.display = 'none';
+            });
 
-        divIngredientes.innerHTML = html;
+            function calcularNutrientes() {
+                nutrientes = {}; // Crear objeto nutrientes vacío
 
-        const botonesEliminar = document.querySelectorAll('#ingredients .eliminar');
-        botonesEliminar.forEach(boton => {
-            boton.addEventListener('click', () => {
-                const index = boton.dataset.index;
+                // Crear la tabla vacía cuando se carga la página
+
+                const tablaNutrientes = document.createElement('table');
+                tablaNutrientes.innerHTML = `
+            <thead>
+              <tr>
+                <th>Nutriente</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="calorias">
+                <td>Calorías</td>
+                <td id="calorias"></td>
+              </tr>
+              <tr class="grasas">
+                <td>Grasas</td>
+                <td id="grasas"></td>
+              </tr>
+              <tr class="grasasSat">
+                <td>Grasas saturadas</td>
+                <td id="grasasSat"></td>
+              </tr>
+              <tr class="carbohidratos">
+                <td>Carbohidratos</td>
+                <td id="carbohidratos"></td>
+              </tr>
+              <tr class="azucares">
+                <td>Azúcares</td>
+                <td id="azucares"></td>
+              </tr>
+              <tr class="proteinas">
+                <td>Proteínas</td>
+                <td id="proteinas"></td>
+              </tr>
+              <tr class="fibra">
+                <td>Fibra</td>
+                <td id="fibra"></td>
+              </tr>
+              <tr class="sodio">
+                <td>Sodio</td>
+                <td id="sodio"></td>
+              </tr>
+            </tbody>`;
+                divResultado.appendChild(tablaNutrientes);
+                divIngredientes.style.display = 'none';
+                selectPlato.disabled = true;
+
+            }
+
+            // Función para actualizar la tabla con los valores de los nutrientes
+            function actualizarTablaNutrientes(nutrientes) {
+                // Recuperar una referencia a cada fila de la tabla por su clase
+                const caloriasRow = tablaNutrientes.querySelector('.calorias');
+                const grasasRow = tablaNutrientes.querySelector('.grasas');
+                const grasasSatRow = tablaNutrientes.querySelector('.grasasSat');
+                const carbohidratosRow = tablaNutrientes.querySelector('.carbohidratos');
+                const azucaresRow = tablaNutrientes.querySelector('.azucares');
+                const proteinasRow = tablaNutrientes.querySelector('.proteinas');
+                const fibraRow = tablaNutrientes.querySelector('.fibra');
+                const sodioRow = tablaNutrientes.querySelector('.sodio');
+
+                // Actualizar el contenido de cada celda con el valor correspondiente
+                caloriasRow.querySelector('td:last-child').textContent = nutrientes.calorias;
+                grasasRow.querySelector('td:last-child').textContent = nutrientes.grasas;
+                grasasSatRow.querySelector('td:last-child').textContent = nutrientes.grasasSat;
+                carbohidratosRow.querySelector('td:last-child').textContent = nutrientes.carbohidratos
+                azucaresRow.querySelector('td:last-child').textContent = nutrientes.azucares;
+                proteinasRow.querySelector('td:last-child').textContent = nutrientes.proteinas;
+                fibraRow.querySelector('td:last-child').textContent = nutrientes.fibra;
+                sodioRow.querySelector('td:last-child').textContent = nutrientes.sodio;
+
+            }
+
+
+            // Función para actualizar la lista de ingredientes
+            function actualizarListaIngredientes(ingredients) {
+                let html = '';
+                for (let i = 0; i < ingredients.length; i++) {
+                    html += `<li class="ingredientes-item">${ingredients[i]}<button class="eliminar" data-index="${i}">Eliminar</button></li>`;
+                }
+
+                divIngredientes.innerHTML = html;
+
+                const botonesEliminar = document.querySelectorAll('#ingredients .eliminar');
+                botonesEliminar.forEach(boton => {
+                    boton.addEventListener('click', () => {
+                        const index = boton.dataset.index;
+                        const ingredientesSeleccionados = divIngredientes.getElementsByTagName('li');
+                        if (index >= 0 && index < ingredientesSeleccionados.length) {
+                            ingredientesSeleccionados[index].remove();
+                            habilitarBotonesIngredientes();
+                        }
+                    });
+                });
+            }
+
+            // Función para habilitar o deshabilitar los botones de agregar y eliminar ingredientes
+            function habilitarBotonesIngredientes() {
                 const ingredientesSeleccionados = divIngredientes.getElementsByTagName('li');
-                if (index >= 0 && index < ingredientesSeleccionados.length) {
-                    ingredientesSeleccionados[index].remove();
+                if (ingredientesSeleccionados.length === 0) {
+                    btnEliminar.disabled = true;
+                } else {
+                    btnEliminar.disabled = false;
+                }
+            }
+
+            selectPlato.addEventListener('change', () => {
+                const platoSeleccionado = selectPlato.value;
+                if (platoSeleccionado) {
+                    const ingredients = platos[platoSeleccionado].ingredients;
+                    actualizarListaIngredientes(ingredients);
                     habilitarBotonesIngredientes();
                 }
             });
-        });
-    }
 
-    // Función para habilitar o deshabilitar los botones de agregar y eliminar ingredientes
-    function habilitarBotonesIngredientes() {
-        const ingredientesSeleccionados = divIngredientes.getElementsByTagName('li');
-        if (ingredientesSeleccionados.length === 0) {
-            btnEliminar.disabled = true;
-        } else {
-            btnEliminar.disabled = false;
-        }
-    }
+            btnEliminar.addEventListener('click', () => {
+                const ingredientesSeleccionados = divIngredientes.getElementsByTagName('li');
+                if (ingredientesSeleccionados.length > 0) {
+                    ingredientesSeleccionados[ingredientesSeleccionados.length - 1].remove();
+                    habilitarBotonesIngredientes();
+                }
+            });
 
-    selectPlato.addEventListener('change', () => {
-        const platoSeleccionado = selectPlato.value;
-        if (platoSeleccionado) {
-            const ingredients = platos[platoSeleccionado].ingredients;
-            actualizarListaIngredientes(ingredients);
-            habilitarBotonesIngredientes();
-        }
-    });
+            btnReset.addEventListener('click', () => {
+                selectPlato.value = '';
+                divIngredientes.innerHTML = '';
+                btnEliminar.disabled = true;
+                location.reload(); // Agregamos la función para refrescar la página
+            });
 
-    btnEliminar.addEventListener('click', () => {
-        const ingredientesSeleccionados = divIngredientes.getElementsByTagName('li');
-        if (ingredientesSeleccionados.length > 0) {
-            ingredientesSeleccionados[ingredientesSeleccionados.length - 1].remove();
-            habilitarBotonesIngredientes();
-        }
-    });
+            function mostrarError() {
+                divResultado.innerHTML = '';
+                divResultado.innerHTML = '<p class="error">No se ha podido obtener la información nutricional. Por favor, inténtalo de nuevo más tarde.</p>';
+            }
 
-    btnReset.addEventListener('click', () => {
-        selectPlato.value = '';
-        divIngredientes.innerHTML = '';
-        btnEliminar.disabled = true;
-        location.reload(); // Agregamos la función para refrescar la página
-    });
-
-    function mostrarError() {
-        divResultado.innerHTML = '';
-        divResultado.innerHTML = '<p class="error">No se ha podido obtener la información nutricional. Por favor, inténtalo de nuevo más tarde.</p>';
-    }
-
-    btnCalcular.addEventListener('click', () => {
-        const platoSeleccionado = selectPlato.value;
-        if (platoSeleccionado) {
-            const ingredients = divIngredientes.getElementsByTagName('li');
-            let ingrString = Array.from(ingredients).map(ingrediente => ingrediente.textContent).join('\n');
+            btnCalcular.addEventListener('click', () => {
+                const platoSeleccionado = selectPlato.value;
+                if (platoSeleccionado) {
+                    const ingredients = divIngredientes.getElementsByTagName('li');
+                    let ingrString = Array.from(ingredients).map(ingrediente => ingrediente.textContent).join('\n');
 
 
 
@@ -234,6 +239,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     valoresNutrientes['Sodio'] = (nutrientes.NA.quantity / 1000).toFixed(2);
 
                     let myChart = null;
+
+                    const divGrafica = document.getElementById('grafica');
+
 
                     function crearGrafica(valoresNutrientes) {
                         // Declara la variable myChart antes de usarla
@@ -298,23 +306,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     const tablaNutrientes = document.createElement('table');
 
                     tablaNutrientes.innerHTML = `
-      <thead>
-        <tr>
-          <th>Nutriente</th>
-          <th>Cantidad</th>
-          <th>Unidad</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${Object.keys(nutrientesMostrar).map(nutriente => `
-          <tr>
-            <td>${nutriente}</td>
-            <td>${nutrientesMostrar[nutriente].quantity.toFixed(2)}</td>
-            <td>${nutrientesMostrar[nutriente].unit}</td>
-          </tr>
-        `).join('')}
-      </tbody>
-    `;
+                      <thead>
+                        <tr>
+                          <th>Nutriente</th>
+                          <th>Cantidad</th>
+                          <th>Unidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${Object.keys(nutrientesMostrar).map(nutriente => `
+                          <tr>
+                            <td>${nutriente}</td>
+                            <td>${nutrientesMostrar[nutriente].quantity.toFixed(2)}</td>
+                            <td>${nutrientesMostrar[nutriente].unit}</td>
+                          </tr>
+                        `).join('')}
+                      </tbody>
+                    `;
 
                     // Añadimos la tabla al documento
                     let taules = document.getElementsByTagName('table')
